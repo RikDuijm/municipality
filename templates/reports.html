@@ -1,0 +1,13 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        {% for report in reports %}
+            {{report.street}}
+            {{report.user_id}}
+            {{report.date}}
+            {{report.is_fixed}}
+        {% endfor %}
+    </body>
+</html>
