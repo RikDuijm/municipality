@@ -1,13 +1,31 @@
-<html>
-    <head>
+{% extends 'base.html'%} {% block content %}
 
-    </head>
-    <body>
-        {% for report in reports %}
-            {{report.street}}
-            {{report.user_id}}
-            {{report.date}}
+<h3>Reported Problems</h3>
+
+<div id="accordion">
+
+    <div class="card">
+    {% for report in reports %}
+
+        <div class="card-header">
+
+                <a class="card-link" data-toggle="collapse" href="#collapseOne"><i class="fas fa-angle-down"></i>
+
+                    {{report.street}} | {{report.date}}
+                </a>
+        </div>
+
+        <div id="collapseOne" class="collapse show" data-parent="#accordion">
+            <div class="card-body">
+            {{report.problem}}<br>
             {{report.is_fixed}}
-        {% endfor %}
-    </body>
-</html>
+            </div>
+
+        </div>
+
+    {% endfor %}
+    </div>
+
+</div>
+
+{% endblock %}

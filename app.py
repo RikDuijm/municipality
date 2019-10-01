@@ -24,8 +24,5 @@ mongo = PyMongo(app)
 def get_reports():
     return render_template("reports.html", reports=mongo.db.reports.find())
 
-
 if __name__ == '__main__':
-    app.run(host=os.environ.get('IP'),
-            port=int(os.environ.get('PORT')),
-            debug=True)
+    app.run(debug=True)

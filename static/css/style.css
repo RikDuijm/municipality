@@ -1,0 +1,16 @@
+/* ------------------------------------------------------------------------------------------- Body - Layout */
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    background-color: #FFFFFF;
+    color: #2a3105;
+    margin: 20px 20px 10px 10px;
+}
+
+/* Without this, bootstrap causes a horizontal scrollbar */
+.container-fluid {
+    width: 100%;
+    padding-right: 10px;
+    padding-left: 10px;
+}
