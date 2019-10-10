@@ -11,13 +11,14 @@
 
                 <a class="card-link" data-toggle="collapse" href="#collapseOne"><i class="fas fa-angle-down"></i>
 
-                    {{report.street}} | {{report.date}}
+                    {{report.streetname}} | {{report.date}}
                 </a>
         </div>
 
         <div id="collapseOne" class="collapse show" data-parent="#accordion">
             <div class="card-body">
             {{report.problem}}<br>
+            {{report.image}}
             {{report.is_fixed}}
             </div>
 
