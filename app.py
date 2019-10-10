@@ -30,7 +30,19 @@ mongo = PyMongo(app)
 def index():
     return render_template("index.html")
 
-
+@app.route('/search')
+def search():
+    """Provides logic for search bar"""
+    orig_query = request.args['query']
+    # using regular expression setting option for any case
+    query = {'$regex': re.compile('.*{}.*'.format(orig_query)), '$options': 'i'}
+    # find instances of the entered word in streetname
+    results = mongo.db.reports.find({
+        '$or': [
+            {'streetname': query},
+        ]
+    })
+    return render_template('search.html', query=orig_query, results=results)
 
 @app.route('/get_reports')
 def get_reports():

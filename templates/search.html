@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="row">
+        <h1>Quickly report a problem in your neighbourhood</h1>
+    </div>
+    <div class="row">
+    <button>Login to report problems / comment</button>
+    </div>
+    <div class="row">
+        <h2>2. Check reported problems in <font color="red">{{ query }}</font>.</h2>
+    </div>
+
+    <div id="accordion">
+        <div class="card">
+            {% for streetname in results %}
+                <div class="card-header">
+                    <a class="card-link" data-toggle="collapse" href="#collapseOne"><i class="fas fa-angle-down"></i>
+                        {{streetname.date}}
+                    </a>
+                </div>
+
+                <div id="collapseOne" class="collapse show" data-parent="#accordion">
+                    <div class="card-body">
+                        {{streetname.problem}}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <br>
+        <div class="progress">
+        <div class="progress-bar bg-danger" style="width:20%">20%</div>
+        </div>
+
+{%  endblock %}
