@@ -1,9 +1,10 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask, render_template, redirect, request, url_for, session
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from bson import Binary
 import re
+import bcrypt #https://pypi.org/project/bcrypt/
 
 # Libraries necesary to store smaller binary files in
 import uuid
@@ -44,6 +45,53 @@ def search():
     })
     return render_template('search.html', query=orig_query, results=results)
 
+
+# https://pypi.org/project/bcrypt/
+# https://stackoverflow.com/questions/38246412/bytes-object-has-no-attribute-encode
+# https://www.youtube.com/watch?v=vVx1737auSE
+'''
+>>> import bcrypt
+>>> password = b"super secret password"
+>>> # Hash a password for the first time, with a randomly-generated salt
+>>> hashed = bcrypt.hashpw(password, bcrypt.gensalt())
+>>> # Check that an unhashed password matches one that has previously been
+>>> # hashed
+>>> if bcrypt.checkpw(password, hashed):
+...     print("It Matches!")
+... else:
+...     print("It Does not Match :(")
+'''
+
+@app.route('/register', methods=['POST', 'GET'])
+def register():
+    if request.method == 'POST':
+        users = mongo.db.users
+        existing_user = users.find_one({'name' : request.form['username']})
+
+        if existing_user is None:
+            hashed = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())
+
+            users.insert({'name': request.form['username'], 'password' : hashed})
+            session['username'] = request.form['username']
+            return render_template('search.html')
+
+        return 'That username already exists.'
+    return render_template('register.html')
+
+@app.route('/login', methods=['POST', 'GET'])
+def login():
+    if request.method == 'POST':
+        users = mongo.db.users
+        login_user = users.find_one({'name' : request.form['username']})
+        hashed = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())
+        if login_user:
+            if bcrypt.checkpw(request.form['password'].encode('utf-8'), hashed):
+                session['username'] = request.form['username']
+                return redirect(url_for('get_reports'))
+            else:
+                return 'Invalid username/password combination.'
+    return render_template('login.html')
+
 @app.route('/get_reports')
 def get_reports():
     return render_template("reports.html", reports=mongo.db.reports.find())
@@ -59,7 +107,7 @@ def insert_report():
         mongo.save_file(image.filename, image)
         mongo.db.reports.insert({'streetname' : request.form.get('streetname'), 'date' : request.form.get('date'), 'problem' : request.form.get('problem'), 'image' : image.filename})
 
-        return render_template("reports.html", reports=mongo.db.reports.find())
+        return redirect(url_for('get_reports'))
 
 
 @app.route('/file/<filename>')
@@ -76,6 +124,6 @@ def street(streetname):
 
 
 
-
 if __name__ == '__main__':
+    app.secret_key = 'geheimpje'
     app.run(debug=True)
