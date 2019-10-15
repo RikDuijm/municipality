@@ -14,20 +14,36 @@
 
 </head>
 <body>
-<nav class="navbar navbar-dark bg-dark">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-danger">
+    <a class="navbar-brand" href="#"><i class="fas fa-landmark" ></i> Breda Council</a>
+    <button class="navbar-toggler border-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-        <a class="navbar-brand" href="#">
-            <i class="fas fa-angle-down"></i>
-        </a>
-        <a class="nav-item nav-link active" href="{{ url_for('search') }}">Home <span class="sr-only">(current)</span></a>
-        <a class="nav-item nav-link" href="{{ url_for('get_reports')}}">Reported problems</a>
 
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+            <a class="nav-link" href="{{ url_for('index') }}">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="{{ url_for('get_reports')}}">Reported problems</a>
+        </li>
+                <li class="nav-item active">
+            <a class="nav-link" href="{{ url_for('login')}}">Login</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Administrators</a>
+        </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" action="{{ url_for('search') }}">
+        <input type="text" name="query"/>&nbsp;
+        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </nav>
+</diV>
 
-</nav>
 
 
     <section class="container-fluid">

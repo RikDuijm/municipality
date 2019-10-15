@@ -1,16 +1,52 @@
 /* ------------------------------------------------------------------------------------------- Body - Layout */
-body {
-    font-family: 'Roboto', sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    background-color: #FFFFFF;
-    color: #2a3105;
-    margin: 20px 20px 10px 10px;
-}
 
 /* Without this, bootstrap causes a horizontal scrollbar */
 .container-fluid {
     width: 100%;
-    padding-right: 10px;
-    padding-left: 10px;
+
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    background-color: #FFFFFF;
+    margin-top: 80px;
+    margin-left: 11%;
+    margin-right: 11%;
+}
+
+h1 {
+    font-size: 1.5em;
+    padding-bottom: 5%;
+}
+
+@media (min-width: 768px) {
+    h1 {
+        font-size: 3em;
+    }
+}
+
+h2 {
+    font-size: 1.2em;
+    padding-bottom: 5%;
+    padding-left: 2%;
+}
+
+@media (min-width: 768px) {
+    h2 {
+        font-size: 2.5em;
+        padding-bottom: 2%;
+    }
+}
+
+.progress {
+    width: 72%;
+    position: fixed;
+    bottom: 10%;
+}
+
+/* ------------------------------------------------------------------------------------------- index.html*/
+.search-input-index {
+    margin-right: 20px;
 }

@@ -6,10 +6,10 @@
         <h1>Quickly report a problem in your neighbourhood</h1>
     </div>
     <div class="row">
-    <button>Login to report problems / comment</button>
+    <button class="btn btn-danger"><a href="{{ url_for('login') }}" class="login"> Login to report problems / comment</a></button>
     </div>
     <div class="row">
-        <h2>2. Check reported problems in <font color="red">{{ query }}</font>.</h2>
+        <h2>2. Check reported problems in <font class="text-danger">{{ query }}</font>.</h2>
     </div>
 
     <div id="accordion">

@@ -49,18 +49,18 @@ def search():
 # https://pypi.org/project/bcrypt/
 # https://stackoverflow.com/questions/38246412/bytes-object-has-no-attribute-encode
 # https://www.youtube.com/watch?v=vVx1737auSE
-'''
->>> import bcrypt
->>> password = b"super secret password"
->>> # Hash a password for the first time, with a randomly-generated salt
->>> hashed = bcrypt.hashpw(password, bcrypt.gensalt())
->>> # Check that an unhashed password matches one that has previously been
->>> # hashed
->>> if bcrypt.checkpw(password, hashed):
-...     print("It Matches!")
-... else:
-...     print("It Does not Match :(")
-'''
+# '''
+# >>> import bcrypt
+# >>> password = b"super secret password"
+# >>> # Hash a password for the first time, with a randomly-generated salt
+# >>> hashed = bcrypt.hashpw(password, bcrypt.gensalt())
+# >>> # Check that an unhashed password matches one that has previously been
+# >>> # hashed
+# >>> if bcrypt.checkpw(password, hashed):
+# ...     print("It Matches!")
+# ... else:
+# ...     print("It Does not Match :(")
+# '''
 
 @app.route('/register', methods=['POST', 'GET'])
 def register():
@@ -102,13 +102,9 @@ def add_report():
 
 @app.route('/insert_report', methods=['POST'])
 def insert_report():
-    if 'image' in request.files:
-        image = request.files['image']
-        mongo.save_file(image.filename, image)
-        mongo.db.reports.insert({'streetname' : request.form.get('streetname'), 'date' : request.form.get('date'), 'problem' : request.form.get('problem'), 'image' : image.filename})
-
-        return redirect(url_for('get_reports'))
-
+    reports = mongo.db.reports
+    reports.insert_one(request.form.to_dict())
+    return redirect(url_for('get_reports'))
 
 @app.route('/file/<filename>')
 def file(filename):
@@ -118,10 +114,9 @@ def file(filename):
 def street(streetname):
     problems_in_street = mongo.db.reports.find_one_or_404({'streetname' : streetname})
     return f'''
-        <h1>{streetname}</h1>
-        <img src="{url_for('file', filename = streetname['image-name'])}" width ="300">
-        '''
-
+           <h1>{streetname}</h1>
+           <img src="{url_for('file', filename = streetname['image-name'])}" width ="300">
+           '''
 
 
 if __name__ == '__main__':
