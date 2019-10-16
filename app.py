@@ -1,6 +1,7 @@
 import os
 from flask import Flask, render_template, redirect, request, url_for, session
 from flask_pymongo import PyMongo
+# Convert in Bson-bject to retrieve record in MongoDB by report ID
 from bson.objectid import ObjectId
 from bson import Binary
 import re
@@ -69,13 +70,15 @@ def register():
         existing_user = users.find_one({'name' : request.form['username']})
 
         if existing_user is None:
-            hashed = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())
+            salt = bcrypt.gensalt()
+            hashed = bcrypt.hashpw(request.form['password'].encode('utf-8'), salt)
 
             users.insert({'name': request.form['username'], 'password' : hashed})
             session['username'] = request.form['username']
-            return render_template('search.html')
+            return render_template('login.html')
 
-        return 'That username already exists.'
+        else:
+            return render_template('existinguser.html')
     return render_template('register.html')
 
 @app.route('/login', methods=['POST', 'GET'])
@@ -83,13 +86,13 @@ def login():
     if request.method == 'POST':
         users = mongo.db.users
         login_user = users.find_one({'name' : request.form['username']})
-        hashed = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())
+        salt = bcrypt.gensalt()
+        hashed = bcrypt.hashpw(request.form['password'].encode('utf-8'), salt)
         if login_user:
-            if bcrypt.checkpw(request.form['password'].encode('utf-8'), hashed):
-                session['username'] = request.form['username']
-                return redirect(url_for('get_reports'))
+            if bcrypt.checkpw(request.form['password'].encode('utf-8'), hashed) and session['username'] == request.form['username']:
+                return redirect("get_reports")
             else:
-                return 'Invalid username/password combination.'
+                return redirect("existinguser.html")
     return render_template('login.html')
 
 @app.route('/get_reports')
@@ -104,6 +107,25 @@ def add_report():
 def insert_report():
     reports = mongo.db.reports
     reports.insert_one(request.form.to_dict())
+    return redirect("get_reports")
+
+@app.route('/edit_report/<report_id>')
+def edit_report(report_id):
+    the_report =  mongo.db.reports.find_one({"_id": ObjectId(report_id)})
+    all_categories = mongo.db.categories.find()
+    return render_template('editreport.html', report=the_report,
+                           categories=all_categories)
+
+@app.route('/update_report/<report_id>', methods=['POST'])
+def update_report(report_id):
+    reports = mongo.db.reports
+    reports.update({'_id' : ObjectId(report_id)},
+      {
+        'streetname':request.form.get('streetname'),
+        'problem': request.form.get('problem'),
+        'date': request.form.get('date'),
+        'image': request.form.get('image'),
+    })
     return redirect(url_for('get_reports'))
 
 @app.route('/file/<filename>')
@@ -121,4 +143,4 @@ def street(streetname):
 
 if __name__ == '__main__':
     app.secret_key = 'geheimpje'
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)

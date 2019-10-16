@@ -2,31 +2,38 @@
 
 <h1>Reported Problems</h1>
 
-<div id="accordion">
-
-    <div class="card">
-    {% for report in reports %}
-
-        <div class="card-header">
-
-                <a class="card-link" data-toggle="collapse" href="#collapseOne"><i class="fas fa-angle-down"></i>
-
-                    {{report.streetname}} | {{report.date}}
-                </a>
+    <div class="row">
+        <div class="col-sm-6 login-button">
+            <button class="btn btn-danger"><a href="{{ url_for('add_report') }}" class="login"> Report a problem</a></button>
         </div>
-
-        <div id="collapseOne" class="collapse show" data-parent="#accordion">
-            <div class="card-body">
-            {{report.problem}}<br>
-            {{report.image}}
-            {{report.is_fixed}}
-            </div>
-
-        </div>
-
-    {% endfor %}
     </div>
 
-</div>
+    <div id="accordion">
+
+        <div class="card">
+        {% for report in reports %}
+
+            <div class="card-header">
+
+                    <a class="card-link" data-toggle="collapse" href="#collapseOne"><i class="fas fa-angle-down"></i>
+
+                        <button class="btn btn-danger"><a href="{{url_for('edit_report', report_id=report._id)}}" class="comment">Comment</a></button> {{report.streetname}} | {{report.date}} <br>
+
+                    </a>
+            </div>
+
+            <div id="collapseOne" class="collapse show" data-parent="#accordion">
+                <div class="card-body">
+                {{report.problem}}<br>
+                {{report.image}}
+                {{report.is_fixed}}
+                </div>
+
+            </div>
+
+        {% endfor %}
+        </div>
+
+    </div>
 
 {% endblock %}

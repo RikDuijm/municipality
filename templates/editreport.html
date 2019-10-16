@@ -1,23 +1,23 @@
 {% extends 'base.html'%} {% block content %}
 
-<h3>Report new problem</h3>
+<h3>Edit a problem</h3>
 
 <!-- https://tempusdominus.github.io/bootstrap-4/ -->
 <div class="container">
     <div class="row">
         <div class="col-sm-6">
-            <form action="{{url_for('insert_report')}}" method="POST" enctype="multipart/form-data">
+            <form action="{{url_for('update_report', report_id=report._id)}}" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="problem">In which street you encounter a problem?</label>
-                    <input id="streetname" name="streetname" type="text" class="form-control" placeholder="Street">
+                    <input id="streetname" name="streetname" type="text" class="form-control" value="{{report.streetname}}">
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Description of the problem</label>
-                    <input id="problem" name="problem" textarea class="form-control" rows="6"></textarea>
+                    <input id="problem" name="problem" textarea class="form-control" value="{{report.problem}}" rows="6"></textarea>
                 </div>
                 <div class="form-group">
                     <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
-                        <input id="date" name="date" type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1"/>
+                        <input id="date" name="date" type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1" value="{{report.date}}"/>
                         <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
                             <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                         </div>
@@ -25,7 +25,7 @@
                 </div>
                 <div class="form-group">
                     <div class="custom-file">
-                        <input id="image" name="image" type="file" class="custom-file-input" id="customFile">
+                        <input id="image" name="image" type="file" class="custom-file-input" id="customFile" value="{{report.image}}">
                         <label class="custom-file-label" for="customFile">Choose file</label>
                     </div>
                 </div>

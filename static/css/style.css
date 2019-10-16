@@ -17,7 +17,7 @@ body {
 }
 
 h1 {
-    font-size: 1.5em;
+    font-size: 1.25em;
     padding-bottom: 5%;
 }
 
@@ -28,25 +28,55 @@ h1 {
 }
 
 h2 {
-    font-size: 1.2em;
+    font-size: 1em;
     padding-bottom: 5%;
     padding-left: 2%;
 }
 
 @media (min-width: 768px) {
     h2 {
-        font-size: 2.5em;
+        font-size: 2.2em;
         padding-bottom: 2%;
     }
 }
 
+a:link {
+    color: #e53935;
+}
+
+a:hover {
+    color: black;
+}
+
+
 .progress {
     width: 72%;
     position: fixed;
-    bottom: 10%;
+    bottom: 20%;
 }
 
-/* ------------------------------------------------------------------------------------------- index.html*/
+footer {
+    position: fixed;
+    bottom: 4%;
+}
+
+/* ------------------------------------------------------------------------------------------- index*/
 .search-input-index {
     margin-right: 20px;
+}
+
+/* ------------------------------------------------------------------------------------------- butons*/
+.login-button {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5%;
+}
+
+.login, .comment {
+    color: white;
+}
+
+.comment {
+    margin-left: 5px;
+    margin-right: 5px;
 }
