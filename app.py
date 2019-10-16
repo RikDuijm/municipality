@@ -73,7 +73,7 @@ def register():
             salt = bcrypt.gensalt()
             hashed = bcrypt.hashpw(request.form['password'].encode('utf-8'), salt)
 
-            users.insert({'name': request.form['username'], 'password' : hashed})
+            users.insert_one({'name': request.form['username'], 'password' : hashed})
             session['username'] = request.form['username']
             return render_template('login.html')
 
@@ -89,10 +89,11 @@ def login():
         salt = bcrypt.gensalt()
         hashed = bcrypt.hashpw(request.form['password'].encode('utf-8'), salt)
         if login_user:
-            if bcrypt.checkpw(request.form['password'].encode('utf-8'), hashed) and session['username'] == request.form['username']:
-                return redirect("get_reports")
+            if bcrypt.checkpw(request.form['password'].encode('utf-8'), hashed):
+                # and session['username'] == request.form['username']
+                return redirect("add_report")
             else:
-                return redirect("existinguser.html")
+                return "WRONG PASSWORD"
     return render_template('login.html')
 
 @app.route('/get_reports')
@@ -125,7 +126,14 @@ def update_report(report_id):
         'problem': request.form.get('problem'),
         'date': request.form.get('date'),
         'image': request.form.get('image'),
+        'add_comment': request.form.get('add_comment'),
     })
+    return redirect(url_for('get_reports'))
+
+@app.route('/delete_report/<report_id>')
+def delete_report(report_id):
+    reports = mongo.db.reports
+    reports.remove({'_id' : ObjectId(report_id)})
     return redirect(url_for('get_reports'))
 
 @app.route('/file/<filename>')

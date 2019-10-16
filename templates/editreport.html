@@ -8,12 +8,12 @@
         <div class="col-sm-6">
             <form action="{{url_for('update_report', report_id=report._id)}}" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
-                    <label for="problem">In which street you encounter a problem?</label>
+                    <label for="problem"><strong>In which street you encounter a problem?</strong></label>
                     <input id="streetname" name="streetname" type="text" class="form-control" value="{{report.streetname}}">
                 </div>
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Description of the problem</label>
-                    <input id="problem" name="problem" textarea class="form-control" value="{{report.problem}}" rows="6"></textarea>
+                    <label for="exampleFormControlTextarea1"><strong>Description of the problem:</strong></label>
+                    <input id="problem" name="problem" textarea class="form-control" rows="6" value="{{report.problem}}"></textarea>
                 </div>
                 <div class="form-group">
                     <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
@@ -29,7 +29,13 @@
                         <label class="custom-file-label" for="customFile">Choose file</label>
                     </div>
                 </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1"><strong>Comment on the problem:</strong></label>
+                    <input id="problem" name="add_comment" textarea class="form-control" rows="6" value="{{report.add_comment}}"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
 
             </form>
 

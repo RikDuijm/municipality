@@ -41,7 +41,7 @@ h2 {
 }
 
 a:link {
-    color: #e53935;
+    color: white;
 }
 
 a:hover {
@@ -72,11 +72,12 @@ footer {
     margin-bottom: 5%;
 }
 
-.login, .comment {
+.login {
     color: white;
 }
 
-.comment {
+.comment_delete {
+    color: white;
     margin-left: 5px;
     margin-right: 5px;
 }
