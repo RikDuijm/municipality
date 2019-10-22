@@ -10,30 +10,32 @@
     </div>
     <div class="row">
         <div class="col-sm-6 login-button">
-            <button class="btn btn-danger"><a href="{{ url_for('login') }}" class="login"> Login to report / comment</a></button>
+            <button class="btn btn-danger"><a href="{{ url_for('login') }}" class="login"> Login to report</a></button>
         </div>
     </div>
     <div id="accordion">
         <div class="card">
             {% for streetname in results %}
                 <div class="card-header">
-                    <p class="card-link" data-toggle="collapse" href="#collapseOne"><i class="fas fa-angle-down"></i>
-                        {{streetname.date}}
+                    <p class="card-link" data-toggle="collapse" href="#collapseOne" aria-expanded="false"><i class="fas fa-angle-down"></i>
+                        {{streetname.problem}}<br>
+                        <span class="small-font">{{streetname.date}}</span>
                     </p>
                 </div>
 
                 <div id="collapseOne" class="collapse show" data-parent="#accordion">
                     <div class="card-body">
-                        {{streetname.problem}}
+                    Reported by: {{streetname.username}}<br>
+                    Status:<br>
+                    {{streetname.add_comment}}
                     </div>
                 </div>
             {% endfor %}
         </div>
     </div>
 
-    <br>
         <div class="progress">
-        <div class="progress-bar bg-danger" style="width:20%">20%</div>
+        <div class="progress-bar bg-danger" style="width:40%">40%</div>
         </div>
 
 {%  endblock %}

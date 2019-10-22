@@ -7,28 +7,28 @@
         <h2>3. Login to report a new problem.</h2>
     </div>
 
-<div class="container">
-    <div class="row">
-        <div class="col-sm-6">
-            <form action="{{url_for('login')}}" method="POST">
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Username</label>
-                    <input id="name" name="username" type="text" class="form-control" placeholder="Username">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input id="password" name="password" type="password" class="form-control" placeholder="Password">
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-            <br />
-            Don't have an account? <a href="{{ url_for('register')}}">Register here!</a>
-
-
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <form action="{{url_for('login')}}" method="POST">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Username</label>
+                        <input id="name" name="username" type="text" class="form-control" placeholder="Username">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input id="password" name="password" type="password" class="form-control" placeholder="Password">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+                <br />
+                Don't have an account? <a href="{{ url_for('register')}}">Register here!</a>
+            </div>
         </div>
-
     </div>
-</div>
 
+    <div class="progress">
+        <div class="progress-bar bg-danger" style="width:60%">60%</div>
+    </div>
 
 {% endblock %}

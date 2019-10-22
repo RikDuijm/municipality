@@ -52,7 +52,7 @@ a:hover {
 .progress {
     width: 72%;
     position: fixed;
-    bottom: 20%;
+    margin-top: 10%;
 }
 
 footer {
@@ -80,4 +80,14 @@ footer {
     color: white;
     margin-left: 5px;
     margin-right: 5px;
+}
+
+/* ------------------------------------------------------------------------------------------- reports*/
+.tab {
+    display:inline-block;
+    margin-left: 20px;
+}
+
+.small-font {
+    font-size: 12px;
 }

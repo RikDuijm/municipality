@@ -1,12 +1,10 @@
 import os
 from flask import Flask, render_template, redirect, request, url_for, session
 from flask_pymongo import PyMongo
-# Convert in Bson-bject to retrieve record in MongoDB by report ID
-from bson.objectid import ObjectId
+from bson.objectid import ObjectId # Convert in Bson-bject to retrieve record in MongoDB by report ID
 from bson import Binary
 import re
 import bcrypt #https://pypi.org/project/bcrypt/
-
 # Libraries necesary to store smaller binary files in
 import uuid
 from bson.binary import Binary, UUIDLegacy, STANDARD
@@ -43,7 +41,7 @@ def search():
         '$or': [
             {'streetname': query},
         ]
-    })
+    }).sort('date', -1)
     return render_template('search.html', query=orig_query, results=results)
 
 
@@ -81,6 +79,24 @@ def register():
             return render_template('existinguser.html')
     return render_template('register.html')
 
+'''
+@app.route('/login', methods=['POST', 'GET'])
+def login():
+    if request.method == 'POST':
+        users = mongo.db.users
+        login_user = users.find_one({'name' : request.form['username']})
+        password = request.form("password").encode("utf-8") #this gives a bytestring as password
+        hashed = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())
+
+        if bcrypt.checkpw(password, hashed):
+            return redirect("add_report")
+        else:
+            flash("Invalid credentials", "warning")
+    return render_template('login.html')
+
+# Look user up in DB using username
+'''
+
 @app.route('/login', methods=['POST', 'GET'])
 def login():
     if request.method == 'POST':
@@ -89,16 +105,19 @@ def login():
         salt = bcrypt.gensalt()
         hashed = bcrypt.hashpw(request.form['password'].encode('utf-8'), salt)
         if login_user:
-            if bcrypt.checkpw(request.form['password'].encode('utf-8'), hashed):
-                # and session['username'] == request.form['username']
+            if bcrypt.checkpw(request.form['password'].encode('utf-8'), hashed) and session['username'] == 'admin':
+                return "Logged in as Admin"
+            elif bcrypt.checkpw(request.form['password'].encode('utf-8'), hashed) and session['username'] == request.form['username']:
                 return redirect("add_report")
             else:
                 return "WRONG PASSWORD"
     return render_template('login.html')
 
+
+
 @app.route('/get_reports')
 def get_reports():
-    return render_template("reports.html", reports=mongo.db.reports.find())
+    return render_template("reports.html", reports=mongo.db.reports.find().sort('date', -1))
 
 @app.route('/add_report')
 def add_report():
@@ -125,6 +144,7 @@ def update_report(report_id):
         'streetname':request.form.get('streetname'),
         'problem': request.form.get('problem'),
         'date': request.form.get('date'),
+        'username' :  request.form.get('username'),
         'image': request.form.get('image'),
         'add_comment': request.form.get('add_comment'),
     })
