@@ -14,67 +14,56 @@
 
 </head>
 <body>
+    <div id="page-container">
+        <div id="content-wrap">
+            <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-danger">
+                <a class="navbar-brand" href="{{ url_for('index') }}"><i class="fas fa-landmark" ></i> Breda Council</a>
+                    <button class="navbar-toggler border-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
 
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-danger">
-        <a class="navbar-brand" href="{{ url_for('index') }}"><i class="fas fa-landmark" ></i> Breda Council</a>
-            <button class="navbar-toggler border-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="{{ url_for('get_reports')}}">Reported problems</a>
-            </li>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                <a class="nav-link" href="{{ url_for('login')}}">Login</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="{{ url_for('register') }}">Register <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Administrators</a>
-            </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0" action="{{ url_for('search') }}">
-            <input type="text" name="query"/>&nbsp;
-            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-            </form>
-        </diV>
-    </nav>
+                        <a class="nav-link" href="{{ url_for('get_reports')}}">Reported problems</a>
+                    </li>
+                            <li class="nav-item active">
+                        <a class="nav-link" href="{{ url_for('login')}}">Login</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ url_for('register') }}">Register <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Administrators</a>
+                    </li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0" action="{{ url_for('search') }}">
+                    <input type="text" name="query"/>&nbsp;
+                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </diV>
+            </nav>
 
 
 
 
-    <section class="container-fluid">
-        <article class="row no-gutters">
-            <div class="col-12">
-                {% block content %} {% endblock %}
-            </div>
-         </article>
-    </section>
-
-    <footer>
+            <section class="container-fluid">
+                <article class="row no-gutters">
+                    <div class="col-12">
+                        {% block content %} {% endblock %}
+                    </div>
+                </article>
+            </section>
+        </div>
+    <footer id="footer">
             <hr>
-            <div class="footer-header">Rondreizen Peru</div>
+            <div class="footer-header">Breda Council</div>
             <p class="footer-text">
-                Calle Puerto Bayovar 117, San Luis, Lima, Peru<br>
-                Telefoon / WhatsApp: +51 981 649 649<br>
-                (Nederlands gesproken; 24/7 bereikbaar)<br>
-                <a href="https://www.facebook.com/rondreizenperu" target="_blank"><i aria-hidden="true" class="fa fa-facebook-square"></i></a>
-                <a href="#" target="_blank"><i aria-hidden="true" class="fa fa-youtube-square"></i></a>
-                <a href="#" target="_blank"><i aria-hidden="true" class="fa fa-instagram"></i> </a>
-                <br><br>
-                <span class="footer-credits">App icons by <a href="https://icons8.com" target="_blank">icons8</a></span>
+                TESTERDETEST
             </p>
         </footer>
 
-        <script crossorigin="anonymous" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" src="https://code.jquery.com/jquery-3.4.1.js"></script>
-        <script src="assets/js/script.js"></script>
-        <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJw3iwRzBB2I2_6lpkCr-mwKoWrEZetPM&callback=initMap"></script>
-        <script src="assets/js/maps.js"></script>
-    </body>
+</body>
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
