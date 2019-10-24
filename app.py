@@ -44,7 +44,6 @@ def search():
     }).sort('date', -1)
     return render_template('search.html', query=orig_query, results=results)
 
-
 # https://pypi.org/project/bcrypt/
 # https://stackoverflow.com/questions/38246412/bytes-object-has-no-attribute-encode
 # https://www.youtube.com/watch?v=vVx1737auSE
@@ -102,18 +101,21 @@ def login():
     if request.method == 'POST':
         users = mongo.db.users
         login_user = users.find_one({'name' : request.form['username']})
-        salt = bcrypt.gensalt()
-        hashed = bcrypt.hashpw(request.form['password'].encode('utf-8'), salt)
         if login_user:
-            if bcrypt.checkpw(request.form['password'].encode('utf-8'), hashed) and session['username'] == 'admin':
-                return "Logged in as Admin"
-            elif bcrypt.checkpw(request.form['password'].encode('utf-8'), hashed) and session['username'] == request.form['username']:
-                return redirect("add_report")
+            salt = request.form['password'].encode('utf-8')
+            input_password = bcrypt.hashpw(salt, login_user['password'])
+            if input_password == login_user['password']:
+                session['username'] = request.form['username']
+                session['logged_in'] = True
+                if session['username'] == 'admin':
+                    return redirect("reports_admin")
+                else:
+                    return render_template('addreport.html')
             else:
-                return "WRONG PASSWORD"
+                return render_template('loginerror.html')
+        else:
+                return render_template('loginerror.html')
     return render_template('login.html')
-
-
 
 @app.route('/get_reports')
 def get_reports():
@@ -128,6 +130,15 @@ def insert_report():
     reports = mongo.db.reports
     reports.insert_one(request.form.to_dict())
     return redirect("get_reports")
+
+
+
+
+@app.route('/reports_admin')
+def reports_admin():
+    return render_template("reportsadmin.html", reports=mongo.db.reports.find().sort('date', -1))
+
+
 
 @app.route('/edit_report/<report_id>')
 def edit_report(report_id):

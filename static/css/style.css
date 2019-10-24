@@ -56,6 +56,19 @@ h2 {
     }
 }
 
+h3 {
+    font-size: 0.7em;
+    padding-bottom: 5%;
+    padding-left: 2%;
+}
+
+@media (min-width: 768px) {
+    h3 {
+        font-size: 1.8em;
+        padding-bottom: 2%;
+    }
+}
+
 a:link {
     color: white;
 }
@@ -64,12 +77,20 @@ a:hover {
     color: black;
 }
 
+.link-red {
+    color: #d32f2f;
+}
+
+.white-space {
+    margin-top: 40px;
+}
 
 .progress {
-    width: 72%;
-    position: fixed;
+    width: 100%;
     margin-top: 10%;
+    position: inherit;
 }
+
 
 /* ------------------------------------------------------------------------------------------- index*/
 .search-input-index {
