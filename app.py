@@ -30,6 +30,10 @@ mongo = PyMongo(app)
 def index():
     return render_template("index.html")
 
+@app.route('/admin')
+def index_admin():
+    return render_template("index-admin.html")
+
 @app.route('/search')
 def search():
     """Provides logic for search bar"""
@@ -43,6 +47,20 @@ def search():
         ]
     }).sort('date', -1)
     return render_template('search.html', query=orig_query, results=results)
+
+@app.route('/search_admin')
+def search_admin():
+    """Provides logic for search bar"""
+    orig_query = request.args['query']
+    # using regular expression setting option for any case
+    query = {'$regex': re.compile('.*{}.*'.format(orig_query)), '$options': 'i'}
+    # find instances of the entered word in streetname
+    results = mongo.db.reports.find({
+        '$or': [
+            {'streetname': query},
+        ]
+    }).sort('date', -1)
+    return render_template('search-admin.html', query=orig_query, results=results)
 
 # https://pypi.org/project/bcrypt/
 # https://stackoverflow.com/questions/38246412/bytes-object-has-no-attribute-encode
@@ -64,13 +82,13 @@ def search():
 def register():
     if request.method == 'POST':
         users = mongo.db.users
-        existing_user = users.find_one({'name' : request.form['username']})
+        existing_user = users.find_one({'username' : request.form['username']})
 
         if existing_user is None:
             salt = bcrypt.gensalt()
             hashed = bcrypt.hashpw(request.form['password'].encode('utf-8'), salt)
 
-            users.insert_one({'name': request.form['username'], 'password' : hashed})
+            users.insert_one({'username': request.form['username'], 'password' : hashed})
             session['username'] = request.form['username']
             return render_template('login.html')
 
@@ -78,29 +96,12 @@ def register():
             return render_template('existinguser.html')
     return render_template('register.html')
 
-'''
-@app.route('/login', methods=['POST', 'GET'])
-def login():
-    if request.method == 'POST':
-        users = mongo.db.users
-        login_user = users.find_one({'name' : request.form['username']})
-        password = request.form("password").encode("utf-8") #this gives a bytestring as password
-        hashed = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())
-
-        if bcrypt.checkpw(password, hashed):
-            return redirect("add_report")
-        else:
-            flash("Invalid credentials", "warning")
-    return render_template('login.html')
-
-# Look user up in DB using username
-'''
 
 @app.route('/login', methods=['POST', 'GET'])
 def login():
     if request.method == 'POST':
         users = mongo.db.users
-        login_user = users.find_one({'name' : request.form['username']})
+        login_user = users.find_one({'username' : request.form['username']})
         if login_user:
             salt = request.form['password'].encode('utf-8')
             input_password = bcrypt.hashpw(salt, login_user['password'])
@@ -117,6 +118,11 @@ def login():
                 return render_template('loginerror.html')
     return render_template('login.html')
 
+@app.route('/logout')
+def logout():
+    session.pop('username')
+    return render_template('index.html')
+
 @app.route('/get_reports')
 def get_reports():
     return render_template("reports.html", reports=mongo.db.reports.find().sort('date', -1))
@@ -131,14 +137,19 @@ def insert_report():
     reports.insert_one(request.form.to_dict())
     return redirect("get_reports")
 
+@app.route('/add_report_admin')
+def add_report_admin():
+    return render_template("addreport-admin.html")
 
-
+@app.route('/insert_report_admin', methods=['POST'])
+def insert_report_admin():
+    reports = mongo.db.reports
+    reports.insert_one(request.form.to_dict())
+    return redirect("reports_admin")
 
 @app.route('/reports_admin')
 def reports_admin():
-    return render_template("reportsadmin.html", reports=mongo.db.reports.find().sort('date', -1))
-
-
+    return render_template("reports-admin.html", reports=mongo.db.reports.find().sort('date', -1))
 
 @app.route('/edit_report/<report_id>')
 def edit_report(report_id):
@@ -159,13 +170,13 @@ def update_report(report_id):
         'image': request.form.get('image'),
         'add_comment': request.form.get('add_comment'),
     })
-    return redirect(url_for('get_reports'))
+    return redirect(url_for('reports_admin'))
 
 @app.route('/delete_report/<report_id>')
 def delete_report(report_id):
     reports = mongo.db.reports
     reports.remove({'_id' : ObjectId(report_id)})
-    return redirect(url_for('get_reports'))
+    return redirect(url_for('reports_admin'))
 
 @app.route('/file/<filename>')
 def file(filename):

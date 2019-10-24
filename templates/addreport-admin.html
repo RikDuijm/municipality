@@ -6,7 +6,7 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-6">
-            <form action="{{url_for('insert_report')}}" method="POST" enctype="multipart/form-data">
+            <form action="{{url_for('insert_report_admin')}}" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="username">Please enter your username:</label>
                     <input id="username" name="username" type="text" class="form-control" placeholder="Username" value="{{ session['username'] }}" required>
