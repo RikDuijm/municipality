@@ -25,6 +25,10 @@ body {
     margin-right: 11%;
 }
 
+.logged-in {
+    margin-bottom: 10px;
+}
+
 #footer {
     position: absolute;
     bottom: 0;
@@ -115,9 +119,8 @@ a:hover {
 }
 
 /* ------------------------------------------------------------------------------------------- reports*/
-.tab {
-    display:inline-block;
-    margin-left: 20px;
+.mouse {
+    cursor: pointer;
 }
 
 .small-font {

@@ -12,16 +12,15 @@
         <div class="card">
             {% for report in reports %}
                 <div class="card-header">
-                        <p class="card-link" data-toggle="collapse" href="#{{ report.streetname }}" aria-expanded="false" role="button"><i class="fas fa-angle-down"></i>
-                            <strong>{{report.streetname}}</strong> <br>
-                            <span class="small-font">{{report.date}}</span>
-                        </p>
+                    <p class="card-link mouse" data-toggle="collapse" href="#{{report.username}}" aria-expanded="false" role="button"><i class="fas fa-angle-down"></i>
+                        <strong>{{report.streetname}}</strong><br>
+                        {{report.problem}}<br>
+                        <span class="small-font">{{report.date}} | Reported by: {{report.username}}</span>
+                    </p>
                 </div>
-                <div id="{{ report.streetname }}" class="collapse" data-parent="#accordion">
+                <div id="{{report.username}}" class="collapse" data-parent="#accordion">
                     <div class="card-body">
-                        {{report.problem}}<br><br>
-                        Reported by: {{report.username}}<br>
-                        Status:<br>
+                        <strong>Response municipality:</strong><br>
                         {{report.add_comment}}
                     </div>
                 </div>

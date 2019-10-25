@@ -17,17 +17,16 @@
         <div class="card">
             {% for streetname in results %}
                 <div class="card-header">
-                    <p class="card-link" data-toggle="collapse" href="#collapseOne" aria-expanded="false"><i class="fas fa-angle-down"></i>
+                    <p class="card-link mouse" data-toggle="collapse" href="#{{streetname.username}}" aria-expanded="false" role="button"><i class="fas fa-angle-down"></i>
+                        {{streetname.streetname}} <br>
                         {{streetname.problem}}<br>
-                        <span class="small-font">{{streetname.date}}</span>
+                        <span class="small-font">{{streetname.date}} | Reported by: {{streetname.username}}</span>
                     </p>
                 </div>
-
-                <div id="collapseOne" class="collapse show" data-parent="#accordion">
+                <div id="{{streetname.username}}" class="collapse" data-parent="#accordion">
                     <div class="card-body">
-                    Reported by: {{streetname.username}}<br>
-                    Status:<br>
-                    {{streetname.add_comment}}
+                        <strong>Response municipality:</strong><br>
+                        {{streetname.add_comment}}
                     </div>
                 </div>
             {% endfor %}

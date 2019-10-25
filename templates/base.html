@@ -1,136 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Muncipality App</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Muncipality App</title>
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,300i,400,400i,500,500i,700&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/100df6bf4a.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet"  href="{{url_for('static', filename='css/style.css')}}" type="text/css"/>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,300i,400,400i,500,500i,700&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/100df6bf4a.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet"  href="{{url_for('static', filename='css/style.css')}}" type="text/css"/>
 
-</head>
-<body>
-    <div id="page-container">
-        <div id="content-wrap">
-            <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-danger">
-                    {% if session['username'] == 'admin' %}
-                        <a class="navbar-brand" href="{{ url_for('index_admin') }}"><i class="fas fa-landmark" ></i> Breda Council</a>
-                            <button class="navbar-toggler border-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                            </button>
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav mr-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="{{ url_for('reports_admin')}}">Reported problems</a>
-                            </li>
-                            <li class="nav-item active">
-                                <a class="nav-link" href="{{ url_for('add_report_admin')}}" tabindex="-1">Add report</a>
-                            </li>
-                            <li class="nav-item active">
-                                <a class="nav-link" href="{{ url_for('logout')}}" tabindex="-1">Logout</a>
-                            </li>
-                            </ul>
-                            <form class="form-inline my-2 my-lg-0" action="{{ url_for('search_admin') }}">
-                            <input type="text" name="query"/>&nbsp;
-                            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-                            </form>
-                        </div>
-                    {% elif 'username' in session and session['username'] != 'admin' %}
-                        <a class="navbar-brand" href="{{ url_for('index') }}"><i class="fas fa-landmark" ></i> Breda Council</a>
-                            <button class="navbar-toggler border-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                            </button>
-
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav mr-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="{{ url_for('get_reports')}}">Reported problems</a>
-                            </li>
-                            <li class="nav-item active">
-                                <a class="nav-link" href="{{ url_for('add_report')}}" tabindex="-1">Add report</a>
-                            </li>
-                            <li class="nav-item active">
-                                <a class="nav-link" href="{{ url_for('logout')}}" tabindex="-1">Logout</a>
-                            </li>
-                            </ul>
-                            <form class="form-inline my-2 my-lg-0" action="{{ url_for('search') }}">
-                            <input type="text" name="query"/>&nbsp;
-                            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-                            </form>
-                        </div>
-
-                    {% else %}
-                        <a class="navbar-brand" href="{{ url_for('index') }}"><i class="fas fa-landmark" ></i> Breda Council</a>
-                            <button class="navbar-toggler border-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                            </button>
-
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav mr-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="{{ url_for('get_reports')}}">Reported problems</a>
-                            </li>
+    </head>
+    <body>
+        <div id="page-container">
+            <div id="content-wrap">
+                <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-danger">
+                        {% if session['username'] == 'admin' %}
+                            <a class="navbar-brand" href="{{ url_for('index_admin') }}"><i class="fas fa-landmark" ></i> Breda Council</a>
+                                <button class="navbar-toggler border-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                                </button>
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav mr-auto">
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="{{ url_for('login')}}">Login</a>
+                                    <a class="nav-link" href="{{ url_for('reports_admin')}}">Reported problems</a>
                                 </li>
                                 <li class="nav-item active">
-                                <a class="nav-link" href="{{ url_for('register') }}">Register <span class="sr-only">(current)</span></a>
+                                    <a class="nav-link" href="{{ url_for('add_report_admin')}}" tabindex="-1">Add report</a>
                                 </li>
-                            </ul>
-                            <form class="form-inline my-2 my-lg-0" action="{{ url_for('search') }}">
-                            <input type="text" name="query"/>&nbsp;
-                            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-                            </form>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="{{ url_for('logout')}}" tabindex="-1">Logout</a>
+                                </li>
+                                </ul>
+                                <form class="form-inline my-2 my-lg-0" action="{{ url_for('search_admin') }}">
+                                <input type="text" name="query"/>&nbsp;
+                                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+                                </form>
+                            </div>
+                        {% elif 'username' in session and session['username'] != 'admin' %}
+                            <a class="navbar-brand" href="{{ url_for('index') }}"><i class="fas fa-landmark" ></i> Breda Council</a>
+                                <button class="navbar-toggler border-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                                </button>
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav mr-auto">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="{{ url_for('get_reports')}}">Reported problems</a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="{{ url_for('add_report')}}" tabindex="-1">Add report</a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="{{ url_for('logout')}}" tabindex="-1">Logout</a>
+                                </li>
+                                </ul>
+                                <form class="form-inline my-2 my-lg-0" action="{{ url_for('search') }}">
+                                <input type="text" name="query"/>&nbsp;
+                                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+                                </form>
+                            </div>
+                        {% else %}
+                            <a class="navbar-brand" href="{{ url_for('index') }}"><i class="fas fa-landmark" ></i> Breda Council</a>
+                                <button class="navbar-toggler border-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                                </button>
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav mr-auto">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="{{ url_for('get_reports')}}">Reported problems</a>
+                                </li>
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="{{ url_for('login')}}">Login</a>
+                                    </li>
+                                    <li class="nav-item active">
+                                    <a class="nav-link" href="{{ url_for('register') }}">Register <span class="sr-only">(current)</span></a>
+                                    </li>
+                                </ul>
+                                <form class="form-inline my-2 my-lg-0" action="{{ url_for('search') }}">
+                                <input type="text" name="query"/>&nbsp;
+                                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+                                </form>
+                            </div>
+                        {% endif %}
+                </nav>
+
+                <section >
+                    <article class="row">
+                        <div class="col-12">
+                            {% if session['username'] == 'admin' %}
+                                <div class="text-light font-italic bg-dark text-center logged-in">Logged in as Admin</div>
+                            {% elif 'username' in session and session['username'] != 'admin' %}
+                                <div class="text-light font-italic bg-dark text-center">Welcome {{ session['username'] }}</div>
+                            {% else %}
                             {% endif %}
-            </nav>
 
+                {% block content %} {% endblock %}
+                        </div>
+                    </article>
+                </section>
+            </div>
 
-
-
-            <section class="container-fluid">
-                <article class="row no-gutters">
-                    <div class="col-12">
-{% if session['username'] == 'admin' %}
-    <div class="text-light font-italic bg-dark pt-2 pr-4 text-center">Logged in as Admin</div>
-    {% elif 'username' in session and session['username'] != 'admin' %}
-    <div class="text-light font-italic bg-dark pt-2 pr-4 text-center">Welcome {{ session['username'] }}</div>
-{% else %}
-
-{% endif %}
-
-                        {% block content %} {% endblock %}
-                    </div>
-                </article>
-            </section>
+            <footer id="footer">
+                <hr>
+                <div class="footer-header">Breda Council</div>
+                <p class="footer-text">
+                    TESTERDETEST
+                </p>
+            </footer>
         </div>
-    <footer id="footer">
-            <hr>
-            <div class="footer-header">Breda Council</div>
-            <p class="footer-text">
-                TESTERDETEST
-            </p>
-        </footer>
 
-</body>
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
-<script>
-// Add the following code if you want the name of the file appear on select
-$(".custom-file-input").on("change", function() {
-  var fileName = $(this).val().split("\\").pop();
-  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-});
-</script>
-
-</body>
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
+        <script>
+        // Add the following code if you want the name of the file appear on select
+        $(".custom-file-input").on("change", function() {
+        var fileName = $(this).val().split("\\").pop();
+        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+        </script>
+    </body>
 </html>
