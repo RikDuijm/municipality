@@ -15,23 +15,28 @@
     </div>
     <div id="accordion">
         <div class="card">
-            {% for streetname in results %}
+            {% for report in results %}
                 <div class="card-header">
-                    <p class="card-link mouse" data-toggle="collapse" href="#{{streetname.username}}" aria-expanded="false" role="button"><i class="fas fa-angle-down"></i>
-                        {{streetname.streetname}} <br>
-                        {{streetname.problem}}<br>
-                        <span class="small-font">{{streetname.date}} | Reported by: {{streetname.username}}</span>
+                    {% if session['username'] == 'admin' %}
+                        <button class="btn btn-danger"><a href="{{url_for('edit_report', report_id=report._id)}}" class="comment_delete">Comment</a></button>
+                        <button class="btn btn-danger"><a href="{{url_for('delete_report', report_id=report._id)}}" class="comment_delete">Delete</a></button>
+                    {% else %}
+                    {% endif %}
+                    <p class="card-link mouse" data-toggle="collapse" href="#{{report.username}}" aria-expanded="false"><i class="fas fa-angle-down"></i>
+                        {{report.streetname}}<br>
+                        {{report.problem}}<br>
+                        <span class="small-font">{{report.date}} | Reported by: {{report.username}}</span>
                     </p>
                 </div>
-                <div id="{{streetname.username}}" class="collapse" data-parent="#accordion">
+
+                <div id="{{report.username}}" class="collapse" data-parent="#accordion">
                     <div class="card-body">
                         <strong>Response municipality:</strong><br>
-                        {{streetname.add_comment}}
+                        {{report.add_comment}}
                     </div>
                 </div>
             {% endfor %}
         </div>
-    </div>
 
         <div class="progress">
         <div class="progress-bar bg-danger" style="width:40%">40%</div>

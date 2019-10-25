@@ -30,10 +30,6 @@ mongo = PyMongo(app)
 def index():
     return render_template("index.html")
 
-@app.route('/admin')
-def index_admin():
-    return render_template("index-admin.html")
-
 @app.route('/search')
 def search():
     """Provides logic for search bar"""
@@ -47,20 +43,6 @@ def search():
         ]
     }).sort('date', -1)
     return render_template('search.html', query=orig_query, results=results)
-
-@app.route('/search_admin')
-def search_admin():
-    """Provides logic for search bar"""
-    orig_query = request.args['query']
-    # using regular expression setting option for any case
-    query = {'$regex': re.compile('.*{}.*'.format(orig_query)), '$options': 'i'}
-    # find instances of the entered word in streetname
-    results = mongo.db.reports.find({
-        '$or': [
-            {'streetname': query},
-        ]
-    }).sort('date', -1)
-    return render_template('search-admin.html', query=orig_query, results=results)
 
 # https://pypi.org/project/bcrypt/
 # https://stackoverflow.com/questions/38246412/bytes-object-has-no-attribute-encode
@@ -109,7 +91,7 @@ def login():
                 session['username'] = request.form['username']
                 session['logged_in'] = True
                 if session['username'] == 'admin':
-                    return redirect("reports_admin")
+                    return redirect("get_reports")
                 else:
                     return render_template('addreport.html')
             else:
@@ -137,19 +119,6 @@ def insert_report():
     reports.insert_one(request.form.to_dict())
     return redirect("get_reports")
 
-@app.route('/add_report_admin')
-def add_report_admin():
-    return render_template("addreport-admin.html")
-
-@app.route('/insert_report_admin', methods=['POST'])
-def insert_report_admin():
-    reports = mongo.db.reports
-    reports.insert_one(request.form.to_dict())
-    return redirect("reports_admin")
-
-@app.route('/reports_admin')
-def reports_admin():
-    return render_template("reports-admin.html", reports=mongo.db.reports.find().sort('date', -1))
 
 @app.route('/edit_report/<report_id>')
 def edit_report(report_id):
@@ -170,13 +139,13 @@ def update_report(report_id):
         'image': request.form.get('image'),
         'add_comment': request.form.get('add_comment'),
     })
-    return redirect(url_for('reports_admin'))
+    return redirect(url_for('get_reports'))
 
 @app.route('/delete_report/<report_id>')
 def delete_report(report_id):
     reports = mongo.db.reports
     reports.remove({'_id' : ObjectId(report_id)})
-    return redirect(url_for('reports_admin'))
+    return redirect(url_for('get_reports'))
 
 @app.route('/file/<filename>')
 def file(filename):

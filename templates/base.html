@@ -17,29 +17,7 @@
         <div id="page-container">
             <div id="content-wrap">
                 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-danger">
-                        {% if session['username'] == 'admin' %}
-                            <a class="navbar-brand" href="{{ url_for('index_admin') }}"><i class="fas fa-landmark" ></i> Breda Council</a>
-                                <button class="navbar-toggler border-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                                </button>
-                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                <ul class="navbar-nav mr-auto">
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="{{ url_for('reports_admin')}}">Reported problems</a>
-                                </li>
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="{{ url_for('add_report_admin')}}" tabindex="-1">Add report</a>
-                                </li>
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="{{ url_for('logout')}}" tabindex="-1">Logout</a>
-                                </li>
-                                </ul>
-                                <form class="form-inline my-2 my-lg-0" action="{{ url_for('search_admin') }}">
-                                <input type="text" name="query"/>&nbsp;
-                                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-                                </form>
-                            </div>
-                        {% elif 'username' in session and session['username'] != 'admin' %}
+                        {% if 'username' in session %}
                             <a class="navbar-brand" href="{{ url_for('index') }}"><i class="fas fa-landmark" ></i> Breda Council</a>
                                 <button class="navbar-toggler border-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
