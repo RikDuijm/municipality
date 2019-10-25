@@ -12,8 +12,8 @@
         <div class="col-sm-6">
             <form action="{{url_for('register')}}" method="POST">
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Username</label>
-                    <input id="username" name="username" type="text" class="form-control" placeholder="Username">
+                    <label for="exampleInputEmail1">Username (spaces not allowed)</label>
+                    <input id="register-username" name="username" type="text" class="form-control" placeholder="Username" onkeypress="return AvoidSpace(event)">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
@@ -24,6 +24,12 @@
         </div>
     </div>
 </div>
-
+<!-- code used from: https://jsfiddle.net/taditdash/hDtA3/ -->
+<script>
+function AvoidSpace(event) {
+    var k = event ? event.which : window.event.keyCode;
+    if (k == 32) return false;
+}
+</script>
 
 {% endblock %}
