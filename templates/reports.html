@@ -2,11 +2,19 @@
 
     <h1>Reported Problems</h1>
 
-    <div class="row">
-        <div class="col-sm-6 login-button">
-            <button class="btn btn-danger"><a href="{{ url_for('add_report') }}" class="login"> Report a problem</a></button>
+    {% if 'username' in session %}
+        <div class="row">
+            <div class="col-sm-6 login-button">
+                <button class="btn btn-danger"><a href="{{ url_for('add_report') }}" class="login"> Report a problem</a></button>
+            </div>
         </div>
-    </div>
+    {% else %}
+        <div class="row">
+            <div class="col-sm-6 login-button">
+                <button class="btn btn-danger"><a href="{{ url_for('login') }}" class="login"> Login to report</a></button>
+            </div>
+        </div>
+    {% endif %}
 
     <div id="accordion">
         <div class="card">
