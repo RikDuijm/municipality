@@ -8,11 +8,15 @@
     <div class="row">
         <h2>2. Check reported problems in <font class="text-danger">{{ query }}</font>.</h2>
     </div>
-    <div class="row">
+    {% if 'username' in session %}
+    {% else %}
+        <div class="row">
         <div class="col-sm-6 login-button">
             <button class="btn btn-danger"><a href="{{ url_for('login') }}" class="login"> Login to report</a></button>
         </div>
     </div>
+    {% endif %}
+
     <div id="accordion">
         <div class="card">
             {% for report in results %}
