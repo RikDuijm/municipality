@@ -5,6 +5,12 @@
     width: 100%;
 }
 
+#watermark {
+    background-color:#ffffff;
+    font-size: 13px;
+    opacity:0.8;
+    margin-bottom: 10px;
+}
 
 body {
     font-family: 'Roboto', sans-serif;
