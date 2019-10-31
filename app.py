@@ -75,9 +75,12 @@ def register():
             return render_template('login.html')
 
         else:
-            return render_template('existinguser.html')
+            return redirect("existinguser")
     return render_template('register.html')
 
+@app.route('/existinguser')
+def existing():
+    return render_template("existinguser.html")
 
 @app.route('/login', methods=['POST', 'GET'])
 def login():

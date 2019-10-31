@@ -1,18 +1,13 @@
 {% extends 'base.html'%} {% block content %}
 
-    <div class="row">
+        <div class="col-12 text-center">
         <h1>Quickly report a problem in your neighbourhood</h1>
-    </div>
-    <div class="row">
         <h2>3. Login to report a new problem.</h2>
-    </div>
-    <div class="row">
-        <h3 class="link-red">You've entered the wrong credentials. Please try again!</h3>
-    </div>
+        <h3 class="link-red">You've entered the wrong credentials. <br>Please try again!</h3>
 
     <div class="container">
-        <div class="row">
-            <div class="col-sm-6">
+        <div class="row justify-content-center">
+            <div class="col-sm-12 col-md-6 login-form">
                 <form action="{{url_for('login')}}" method="POST">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Username</label>

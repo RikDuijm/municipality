@@ -33,7 +33,11 @@ body {
     margin-right: 11%;
 }
 
-.logged-in {
+.login-form {
+    align-content: center;
+}
+
+.logged-in, .welcome {
     margin-bottom: 10px;
 }
 
@@ -86,7 +90,7 @@ h3 {
     color: #d32f2f;
 }
 
-.link-red:hover, .fab:hover, .menu-item:hover {
+.link-red:hover, .fab:hover, .menu-item:hover, .login:hover, .comment_delete:hover {
     color: black;
     transition: 0.5s ease-in-out;
 }

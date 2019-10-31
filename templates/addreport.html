@@ -1,48 +1,50 @@
 {% extends 'base.html'%} {% block content %}
 
-<h3>4. Report new problem</h3>
+    <div class="col-12 text-center">
+        <h1>Quickly report a problem in your neighbourhood</h1>
+        <h2>4. Report new problem</h2>
+    </div>
 
-<!-- https://tempusdominus.github.io/bootstrap-4/ -->
-<div class="container">
-    <div class="row">
-        <div class="col-sm-6">
-            <form action="{{url_for('insert_report')}}" method="POST" enctype="multipart/form-data">
-                <div class="form-group">
-                    <label for="username">Please enter your username:</label>
-                    <input id="username-report" name="username" type="text" class="form-control" placeholder="Username" value="{{ session['username'] }}" readonly>
-                </div>
-                <div class="form-group">
-                    <label for="problem">In which street you encounter a problem?</label>
-                    <input id="streetname" name="streetname" type="text" class="form-control" placeholder="Street" required>
-                </div>
-                <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Description of the problem</label>
-                    <input id="problem" name="problem" textarea class="form-control" rows="6" required></textarea>
-                </div>
-                <div class="form-group">
-                    <div class="input-group date" id="datetimepicker1" data-target-input="nearest" required>
-                        <input id="date" name="date" type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1"/>
-                        <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
-                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+
+     <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-sm-12 col-md-6 login-form">
+                <form action="{{url_for('insert_report')}}" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="username">Please enter your username:</label>
+                        <input id="username-report" name="username" type="text" class="form-control" placeholder="Username" value="{{ session['username'] }}" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="problem">In which street you encounter a problem?</label>
+                        <input id="streetname" name="streetname" type="text" class="form-control" placeholder="Street" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Description of the problem</label>
+                        <input id="problem" name="problem" textarea class="form-control" rows="6" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group date" id="datetimepicker1" data-target-input="nearest" required>
+                            <input id="date" name="date" type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1"/>
+                            <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
                         </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="custom-file">
-                        <input id="image" name="image" type="file" class="custom-file-input" id="customFile">
-                        <label class="custom-file-label" for="customFile">Choose file</label>
-                    </div>
-                </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="custom-file">
+                                <input id="image" name="image" type="file" class="custom-file-input" id="customFile">
+                                <label class="custom-file-label" for="customFile">Choose file</label>
+                            </div>
+                        </div>
+                    <button type="submit" class="btn btn-danger">Submit</button>
 
-            </form>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 
-<div class="progress">
-    <div class="progress-bar bg-danger" style="width:80%">80%</div>
-</div>
+    <div class="progress">
+        <div class="progress-bar bg-danger" style="width:80%">80%</div>
+    </div>
 
 
 {% endblock %}

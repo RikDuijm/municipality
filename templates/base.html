@@ -70,13 +70,12 @@
                             {% if session['username'] == 'admin' %}
                                 <div class="text-light font-italic bg-dark text-center logged-in">Logged in as Admin</div>
                             {% elif 'username' in session and session['username'] != 'admin' %}
-                                <div class="text-light font-italic bg-dark text-center">Welcome {{ session['username'] }}</div>
+                                <div class="text-light font-italic bg-dark text-center welcome">Welcome {{ session['username'] }}</div>
                             {% else %}
                             {% endif %}
+                        </div>
 
                 {% block content %} {% endblock %}
-
-                        </div>
                     </article>
                 </section>
             </div>

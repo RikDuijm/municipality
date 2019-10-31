@@ -1,11 +1,12 @@
 {% extends 'base.html'%} {% block content %}
 
-<h3>Edit a problem</h3>
+<div class="col-12 text-center">
+    <h2>Edit a problem</h2>
+</div>
 
-<!-- https://tempusdominus.github.io/bootstrap-4/ -->
 <div class="container">
-    <div class="row">
-        <div class="col-sm-6">
+    <div class="row justify-content-center">
+        <div class="col-sm-12 col-md-6 login-form">
             <form action="{{url_for('update_report', report_id=report._id)}}" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="problem"><strong>In which street you encounter a problem?</strong></label>
@@ -33,19 +34,13 @@
                         <label class="custom-file-label" for="customFile">Choose file</label>
                     </div>
                 </div>
-
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1"><strong>Comment on the problem:</strong></label>
                     <input id="problem" name="add_comment" textarea class="form-control" rows="6" value="{{report.add_comment}}"></textarea>
                 </div>
-
                 <button type="submit" class="btn btn-primary">Submit</button>
-
             </form>
-
-
         </div>
-
     </div>
 </div>
 
