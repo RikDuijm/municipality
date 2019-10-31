@@ -1,12 +1,8 @@
 /* ------------------------------------------------------------------------------------------- Body - Layout */
 
-/* Without this, bootstrap causes a horizontal scrollbar */
-.container-fluid {
-    width: 100%;
-}
 
 #watermark {
-    background-color:#ffffff;
+    background-color: #FFFFFF;
     font-size: 13px;
     opacity:0.8;
     margin-bottom: 10px;
@@ -17,6 +13,12 @@ body {
     font-size: 18px;
     font-weight: 400;
     background-color: #FFFFFF;
+}
+
+.background {
+    background-image: url("https://img.icons8.com/android/350/f9f9f9/city-hall.png");
+    background-repeat: no-repeat;
+    background-position: top;
 }
 
 #page-container {
@@ -79,16 +81,19 @@ h3 {
     }
 }
 
-a:link {
-    color: white;
-}
 
-a:hover {
-    color: black;
-}
-
-.link-red {
+.link-red, .fab {
     color: #d32f2f;
+}
+
+.link-red:hover, .fab:hover, .menu-item:hover {
+    color: black;
+    transition: 0.5s ease-in-out;
+}
+
+.fab {
+    font-size: 30px;
+    margin-left: 10px;
 }
 
 .white-space {

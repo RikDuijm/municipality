@@ -18,20 +18,20 @@
             <div id="content-wrap">
                 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-danger">
                         {% if 'username' in session %}
-                            <a class="navbar-brand" href="{{ url_for('index') }}"><i class="fas fa-landmark" ></i> Breda Council</a>
+                            <a class="navbar-brand" href="{{ url_for('index') }}"><img src="https://img.icons8.com/android/30/ffffff/city-hall.png"> <span class="menu-item">Breda Council</span></a>
                                 <button class="navbar-toggler border-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                                 </button>
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul class="navbar-nav mr-auto">
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="{{ url_for('get_reports')}}">Reported problems</a>
+                                    <a class="nav-link" href="{{ url_for('get_reports')}}"><span class="menu-item">Reported problems</span></a>
                                 </li>
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="{{ url_for('add_report')}}" tabindex="-1">Add report</a>
+                                    <a class="nav-link" href="{{ url_for('add_report')}}" tabindex="-1"><span class="menu-item">Add report</span></a>
                                 </li>
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="{{ url_for('logout')}}" tabindex="-1">Logout</a>
+                                    <a class="nav-link" href="{{ url_for('logout')}}" tabindex="-1"><span class="menu-item">Logout</span></a>
                                 </li>
                                 </ul>
                                 <form class="form-inline my-2 my-lg-0" action="{{ url_for('search') }}">
@@ -40,20 +40,20 @@
                                 </form>
                             </div>
                         {% else %}
-                            <a class="navbar-brand" href="{{ url_for('index') }}"><i class="fas fa-landmark" ></i> Breda Council</a>
+                            <a class="navbar-brand" href="{{ url_for('index') }}"><img src="https://img.icons8.com/android/30/ffffff/city-hall.png"> <span class="menu-item">Breda Council</span></a>
                                 <button class="navbar-toggler border-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                                 </button>
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul class="navbar-nav mr-auto">
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="{{ url_for('get_reports')}}">Reported problems</a>
+                                <li class="nav-item active test">
+                                    <a class="nav-link" href="{{ url_for('get_reports')}}"><span class="menu-item">Reported problems</span></a>
                                 </li>
                                     <li class="nav-item active">
-                                        <a class="nav-link" href="{{ url_for('login')}}">Login</a>
+                                        <a class="nav-link" href="{{ url_for('login')}}"><span class="menu-item">Login</span></a>
                                     </li>
                                     <li class="nav-item active">
-                                    <a class="nav-link" href="{{ url_for('register') }}">Register <span class="sr-only">(current)</span></a>
+                                    <a class="nav-link" href="{{ url_for('register') }}"><span class="menu-item">Register</span></a>
                                     </li>
                                 </ul>
                                 <form class="form-inline my-2 my-lg-0" action="{{ url_for('search') }}">
@@ -65,9 +65,8 @@
                 </nav>
 
                 <section >
-                                    <div id="watermark" class="text-center"><i class="fas fa-landmark"></i><span class="link-red"><strong> Breda Council</strong></span> <em>always at your service!</em> <i class="fas fa-landmark" ></i></div>
-                    <article class="row">
-                        <div class="col-12">
+                    <article class="row background">
+                        <div class="col-12 text-center">
                             {% if session['username'] == 'admin' %}
                                 <div class="text-light font-italic bg-dark text-center logged-in">Logged in as Admin</div>
                             {% elif 'username' in session and session['username'] != 'admin' %}
@@ -84,12 +83,14 @@
 
             <footer id="footer">
                 <hr>
-                <div class="footer-header">Breda Council</div>
-                <p class="footer-text">
-                    <div class="jumbotron test">
-                        <h1>Breda Council</h1>
-                        <p>TESTERDETEST</p>
-</div>
+                <p>
+                    <div class="text-center"><span class="text-danger"><strong> Breda Council</strong></span><br>
+                        <img src="https://img.icons8.com/android/25/d32f2f/city-hall.png"> <em>always at your service!</em> <img src="https://img.icons8.com/android/25/d32f2f/city-hall.png"><br><br>
+                        <a href="#" target="_blank" class="link-red">Contact and opening hours</a> | follow us:
+                            <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
                 </p>
             </footer>
         </div>
