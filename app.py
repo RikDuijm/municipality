@@ -27,6 +27,7 @@ mongo = PyMongo(app)
 
 # Because of the / decorator the default function that will be called will be get_reports. Change this later on!
 @app.route('/')
+@app.route('/index')
 def index():
     return render_template("index.html")
 
@@ -72,7 +73,7 @@ def register():
 
             users.insert_one({'username': request.form['username'], 'password' : hashed})
             session['username'] = request.form['username']
-            return render_template('login.html')
+            return redirect("login")
 
         else:
             return redirect("existinguser")
@@ -96,17 +97,21 @@ def login():
                 if session['username'] == 'admin':
                     return redirect("get_reports")
                 else:
-                    return render_template('addreport.html')
+                    return redirect("add_report")
             else:
-                return render_template('loginerror.html')
+                return redirect("login_error")
         else:
-                return render_template('loginerror.html')
+                return redirect("login_error")
     return render_template('login.html')
+
+@app.route('/login_error')
+def login_error():
+    return render_template('loginerror.html')
 
 @app.route('/logout')
 def logout():
     session.pop('username')
-    return render_template('index.html')
+    return redirect("index")
 
 @app.route('/get_reports')
 def get_reports():
