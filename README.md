@@ -8,7 +8,7 @@ The user can check if someone else reported the problem and if not, report it hi
 3. It helps the municipality to show transparency towards its citizens by reporting what they do to solve problems and by showing how many problems they actually do solve!
 
 - [**View the website here!**](#)
-- [**View website development in Cloud9!**](#)
+- [**View website development in Cloud9!**](https://github.com/RikDuijm/municipality/)
 
 ## Contents Table
 1. [**UX**](#ux)
@@ -99,11 +99,11 @@ Although the website must look visually nice, images are of no importance. It’
 This is a mobile first app. I expect the client to use this app mostly on a mobile phone walking on the street and noticing something, or maybe on a tablet afterwards. I don’t expect many users to use a desktop, but it’s certainly also designed for that, especially since most administrator might use a desktop.
 
 The whole design and the choices I made are based on that assumption. I made six mobile wireframes, reflecting the process of reporting a problem described above.
-1 [initial screen]()
-2 [screen after searching on street name](0)
-3 [screen for log in]()
-4 [overview of reports]()
-5 [form to report a problem]()
+1 [initial screen](https://github.com/RikDuijm/municipality/blob/master/user-design-experience/Municipality%20App%201.jpg)
+2 [screen after searching on street name](https://github.com/RikDuijm/municipality/blob/master/user-design-experience/Municipality%20App%202.jpg)
+3 [screen for log in](https://github.com/RikDuijm/municipality/blob/master/user-design-experience/Municipality%20App%203.jpg)
+4 [overview of reports](https://github.com/RikDuijm/municipality/blob/master/user-design-experience/Municipality%20App%204.jpg)
+5 [form to report a problem](https://github.com/RikDuijm/municipality/blob/master/user-design-experience/Municipality%20App%205.jpg)
 
 Basically I created exactly what I had in mind, with the following exceptions:
 
