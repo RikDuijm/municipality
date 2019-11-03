@@ -18,7 +18,6 @@ The user can check if someone else reported the problem and if not, report it hi
     - [User Experience](#user-experience)
     - [Design Ideas](#design-ideas)
     - [Wireframes](#wireframes)
-    - [Business Purpose](#business-purpose)
 
 2. [**Functionality and Features**](#features)
     - [Existing Features](#existing-features)
@@ -35,7 +34,6 @@ The user can check if someone else reported the problem and if not, report it hi
 
 6. [**Credits**](#credits)
     - [**Contents**](#contents)
-    - [**Media**](#media)
     - [**Help with code**](#help-with-code)
     - [**Acknowledgements**](#acknowledgements)
 
@@ -99,10 +97,10 @@ Although the website must look visually nice, images are of no importance. It’
 This is a mobile first app. I expect the client to use this app mostly on a mobile phone walking on the street and noticing something, or maybe on a tablet afterwards. I don’t expect many users to use a desktop, but it’s certainly also designed for that, especially since most administrator might use a desktop.
 
 The whole design and the choices I made are based on that assumption. I made six mobile wireframes, reflecting the process of reporting a problem described above.
-1 [initial screen](https://github.com/RikDuijm/municipality/blob/master/user-design-experience/Municipality%20App%201.jpg)
-2 [screen after searching on street name](https://github.com/RikDuijm/municipality/blob/master/user-design-experience/Municipality%20App%202.jpg)
-3 [screen for log in](https://github.com/RikDuijm/municipality/blob/master/user-design-experience/Municipality%20App%203.jpg)
-4 [overview of reports](https://github.com/RikDuijm/municipality/blob/master/user-design-experience/Municipality%20App%204.jpg)
+1 [initial screen](https://github.com/RikDuijm/municipality/blob/master/user-design-experience/Municipality%20App%201.jpg)<br>
+2 [screen after searching on street name](https://github.com/RikDuijm/municipality/blob/master/user-design-experience/Municipality%20App%202.jpg)<br>
+3 [screen for log in](https://github.com/RikDuijm/municipality/blob/master/user-design-experience/Municipality%20App%203.jpg)<br>
+4 [overview of reports](https://github.com/RikDuijm/municipality/blob/master/user-design-experience/Municipality%20App%204.jpg)<br>
 5 [form to report a problem](https://github.com/RikDuijm/municipality/blob/master/user-design-experience/Municipality%20App%205.jpg)
 
 Basically I created exactly what I had in mind, with the following exceptions:
@@ -143,18 +141,18 @@ For now, people can send in a file / photo with the form. Obviously this could h
 I figured out how to retrieve this internally using the filename, but not how to retrieve this on the website in a nice and consistent manner. So for now, I maintained the possibility for the user to send in a file, but it won’t show in the report.
 
 ## <a name="ux"></a>Technologies Used
-•	I used HTML, CSS, Python (Pymongo), Flask, Jinja2 jQuery and JavaScript.
-•	IDE: I used Gitpod.
-•	I used Bootstrap for the grid system of the page, the form and the progress bar.
-•	I used the libraries Re and Bcrypt for the search and register/login functionality respectively.
-•	I used Tempus Dominus as a date / time picker
-•	Google fonts has been used for the fonts.
-•	I used Font Awesome for the icons in the footer of the website and icons8.com for the icon in the navigation bar / in the background of the page.
-•	JQuery was used to pre-set the date and time in the form.
-•	JavaScript to make it impossible for a user to use spaces in his username when registering.
-•	Google Chrome developer tools
-•	Bash / Ubuntu to commit my project and to push it to Github (CHECK)
-•	Github for version control
+•	I used HTML, CSS, Python (Pymongo), Flask, Jinja2 jQuery and JavaScript.<br>
+•	IDE: I used Gitpod.<br>
+•	I used Bootstrap for the grid system of the page, the form and the progress bar.<br>
+•	I used the libraries Re and Bcrypt for the search and register/login functionality respectively.<br>
+•	I used Tempus Dominus as a date / time picker<br>
+•	Google fonts has been used for the fonts.<br>
+•	I used Font Awesome for the icons in the footer of the website and icons8.com for the icon in the navigation bar / in the background of the page.<br>
+•	JQuery was used to pre-set the date and time in the form.<br>
+•	JavaScript to make it impossible for a user to use spaces in his username when registering.<br>
+•	Google Chrome developer tools<br>
+•	Bash / Ubuntu to commit my project and to push it to Github (CHECK)<br>
+•	Github for version control<br>
 •	Heroku for users to view the deployed version of the website.
 
 ## <a name="testing"></a>Testing
@@ -172,10 +170,10 @@ The following validation services were used to check the validity of my code.
 - JSHint was used to validate JavaScript.
 
 ### <a name="note"></a>Note for Code Institute
-After finishing my first Milestone Project I made a complaint that we hadn't had a single lesson about testing our code, but that you expect us to be able to do this. The reply I received:
-I have passed your valuable feedback over to the learning Success Team. I have spoken to someone from the team and they agreed that more information about testing and deployment is due. This is being looked into and in the process of being improved.
-I again made a complaint upon starting this Milestone Project:
-So far we only got a quick introduction to Jasmine with only 1 specific example. I feel that in the Milestone Projects there's an emphasis on the importance of testing, that isn't reflected in the course and based on this 1 lesson I can't create automated testing for this project.
+After finishing my first Milestone Project I made a complaint that we hadn't had a single lesson about testing our code, but that you expect us to be able to do this. The reply I received:<br>
+I have passed your valuable feedback over to the learning Success Team. I have spoken to someone from the team and they agreed that more information about testing and deployment is due. This is being looked into and in the process of being improved.<br>
+I again made a complaint upon starting this Milestone Project:<br>
+So far we only got a quick introduction to Jasmine with only 1 specific example. I feel that in the Milestone Projects there's an emphasis on the importance of testing, that isn't reflected in the course and based on this 1 lesson I can't create automated testing for this project.<br>
 
 Now, with the third milestone, again I don’t feel that we received enough – if any – instructions or practice about how to test our projects. I really feel that if you think this is important you should teach us well how to do this. I don’t think I have received the tools to be able to do so.
 
