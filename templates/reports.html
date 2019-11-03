@@ -12,6 +12,7 @@
     {% else %}
         <div class="row">
             <div class="col-sm-6 login-button">
+                <a href="{{ url_for('login') }}" class="btn btn-danger" role="button">Login to report</a>
                 <button class="btn btn-danger"><a href="{{ url_for('login') }}" class="login"> Login to report</a></button>
             </div>
         </div>
