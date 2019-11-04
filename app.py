@@ -115,7 +115,7 @@ def logout():
 
 @app.route('/get_reports')
 def get_reports():
-    return render_template("reports.html", reports=mongo.db.reports.find().sort('date', -1))
+    return render_template("reports.html", reports=mongo.db.Reports.find().sort('date', -1))
 
 @app.route('/add_report')
 def add_report():
