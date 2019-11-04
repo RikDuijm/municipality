@@ -11,7 +11,6 @@ from bson.binary import Binary, UUIDLegacy, STANDARD
 from bson.codec_options import CodecOptions
 
 app = Flask(__name__)
-app.secret_key = 'geheimpje'
 
 app.config["MONGO_DBNAME"] = 'municipality'
 app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
@@ -170,4 +169,5 @@ def street(streetname):
 
 
 if __name__ == '__main__':
+    app.secret_key = 'geheimpje'
     app.run(host="0.0.0.0", port=5000, debug=True)
