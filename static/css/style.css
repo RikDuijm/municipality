@@ -4,8 +4,9 @@
 body {
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
+    color: #444;
     font-weight: 400;
-    background-color: #FFFFFF;
+    background-color: #f5f5f5;
 }
 
 .background {
@@ -66,6 +67,9 @@ body {
     margin-bottom: 10px;
 }
 
+.text-small {
+    font-size: 10px;
+}
 
 h1 {
     font-size: 1.25em;
@@ -124,8 +128,8 @@ h3 {
     color: #d32f2f;
 }
 
-.link-red:hover, .fab:hover, .menu-item:hover, .login:hover, .comment_delete:hover {
-    color: black;
+.link-red:hover, .fab:hover, .login:hover, .comment_delete:hover {
+    color: #444;
     transition: 0.5s ease-in-out;
 }
 
@@ -141,7 +145,7 @@ h3 {
 .progress {
     width: 100%;
     margin-top: 10%;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
     position: inherit;
 }
 

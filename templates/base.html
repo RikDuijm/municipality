@@ -16,7 +16,7 @@
     <body>
         <div id="page-container">
             <div id="content-wrap">
-                <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-danger">
+                <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #00008b;">
                         {% if 'username' in session %}
                             <a class="navbar-brand" href="{{ url_for('index') }}"><img src="https://img.icons8.com/android/30/ffffff/city-hall.png"> <span class="menu-item">Breda Council</span></a>
                                 <button class="navbar-toggler border-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -98,11 +98,12 @@
                                     follow us:
                                     <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
                                     <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a><br>
+                                    <span class="text-small">App icons by <a href="https://icons8.com" target="_blank" class="link-red">icons8</a></span>
                                 </p>
                             </div>
                         </div>
-                    </p>
+
                     </div>
             </footer>
         </div>
