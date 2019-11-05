@@ -15,6 +15,7 @@ app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'municipality'
 app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
 
+
 # Create an instance of PyMongo. Add the app into that with a constructor method.
 mongo = PyMongo(app)
 
@@ -169,6 +170,6 @@ def street(streetname):
 
 
 if __name__ == '__main__':
-    app.secret_key = 'geheimpje'
+    app.secret_key = os.getenv('SECRET_KEY')
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port, debug=True)
