@@ -163,10 +163,11 @@ I figured out how to retrieve this internally using the filename, but not how to
 #### Testing the functionality ####
 I tested the functionalities by going through the steps a user should take to report a problem.
 
-**1. Search Functionality**⋅⋅
-⋅⋅⋅1. Filling in a street name that is already in the database (because a problem has been reported):⋅⋅
++ **1. Search Functionality**
+    1. Filling in a street name that is already in the database (because a problem has been reported):
     Expected result: street name + problem. Works correctly.
     2. Testing if the search functionality is case sensitive
+
     Expected result: not case sensitive. I tested this by filling in lower key, capital letters and a combination of upper and lower. Works correctly.
     3. Testing if all the reports about a given street show up
     Expected result: all reports show up. Works correctly.
@@ -175,6 +176,7 @@ I tested the functionalities by going through the steps a user should take to re
 
 **2. Login Functionality**
     1. Does the button login show in all possible scenarios of step 1?
+
     Expected result: yes. Works correctly.
     2. User (citizen) fills in correct credentials
     Expected result: he is redirected to the “add report” page, and the message “Welcome [username]” is shown. His username is already filled-in and the user cannot change this. Also the date is already filled-in. This is changeable.
