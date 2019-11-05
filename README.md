@@ -163,8 +163,8 @@ I figured out how to retrieve this internally using the filename, but not how to
 #### Testing the functionality ####
 I tested the functionalities by going through the steps a user should take to report a problem.
 
-**1. Search Functionality**..
-...1. Filling in a street name that is already in the database (because a problem has been reported):..
+**1. Search Functionality**⋅⋅
+⋅⋅⋅1. Filling in a street name that is already in the database (because a problem has been reported):⋅⋅
     Expected result: street name + problem. Works correctly.
     2. Testing if the search functionality is case sensitive
     Expected result: not case sensitive. I tested this by filling in lower key, capital letters and a combination of upper and lower. Works correctly.
