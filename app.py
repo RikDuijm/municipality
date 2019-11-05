@@ -74,8 +74,7 @@ def register():
 
             users.insert_one({'username': request.form['username'], 'password' : hashed})
             session['username'] = request.form['username']
-            return redirect("login")
-
+            return redirect("add_report")
         else:
             return redirect("existinguser")
     return render_template('register.html')
