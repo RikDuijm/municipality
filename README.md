@@ -157,87 +157,80 @@ I figured out how to retrieve this internally using the filename, but not how to
 
 ## <a name="testing"></a>Testing
 ### <a name="manual-testing"></a>Manual testing<br>
-#### Responsive testing ####<br>
-#### Testing different browsers ####<br>
+#### Responsive testing
+#### Testing different browsers
 
 #### Testing the functionality ####
 I tested the functionalities by going through the steps a user should take to report a problem.
 
-+ **1. Search Functionality**
+**1. Search Functionality**
     1. Filling in a street name that is already in the database (because a problem has been reported):
     Expected result: street name + problem. Works correctly.
-    2. Testing if the search functionality is case sensitive
-
+    1. Testing if the search functionality is case sensitive
     Expected result: not case sensitive. I tested this by filling in lower key, capital letters and a combination of upper and lower. Works correctly.
-    3. Testing if all the reports about a given street show up
+    1. Testing if all the reports about a given street show up
     Expected result: all reports show up. Works correctly.
-    4. Testing what happens if a street is not in the database
+    1. Testing what happens if a street is not in the database
     Expected result: no results shown. Works correctly.
 
-**2. Login Functionality**
+**1. Login Functionality**
     1. Does the button login show in all possible scenarios of step 1?
 
     Expected result: yes. Works correctly.
-    2. User (citizen) fills in correct credentials
+    1. User (citizen) fills in correct credentials
     Expected result: he is redirected to the “add report” page, and the message “Welcome [username]” is shown. His username is already filled-in and the user cannot change this. Also the date is already filled-in. This is changeable.
     Works correctly.
-    3. User (citizen) fills in unknown username but correct password
+    1. User (citizen) fills in unknown username but correct password
     Expected result: receives message “wrong credentials. Works correctly.
-    4. User (citizen) fills in correct username but incorrect password
+    1. User (citizen) fills in correct username but incorrect password
     Expected result: receives message “wrong credentials. Works correctly.
-    5. Administrator fills in correct credentials
+    1. Administrator fills in correct credentials
     Expected result: he is redirected to an overview of all reported problems. This is the administration environment, in which admin may comment on a problem or delete it. Regular user cannot reach this. Message “Logged in as Admin” is shown.
     Works correctly
-    6. Administrator fills in wrong username but correct password
+    1. Administrator fills in wrong username but correct password
     Expected result: receives message “wrong credentials. Works correctly.
-    7. Administrator fills in correct username but incorrect password
+    1. Administrator fills in correct username but incorrect password
     Expected result: receives message “wrong credentials. Works correctly.
 
-**3 Register Functionality**
-1: User chooses a username that already exists.
-Expected result: user receives a message “username already taken”. Works correctly.
+**1 Register Functionality**
+    1. User chooses a username that already exists.
+    Expected result: user receives a message “username already taken”. Works correctly.
+    1. User chooses a username that doesn’t exist yet.
+    Expected result: he is redirected to the login page. Works correctly. However: the user doesn’t have to log in anymore – he’s already logged in automatically after registering. Since this actually speeds up the process for the user, I choose to leave it like this, but redirect immediately to the “add report” page.
+    1. User tries to have a space in his username (so he wants it to exist of 2 separate words, i.e. first and last name).
+    Expected result: this is automatically disabled. Works correctly.
 
-2: User chooses a username that doesn’t exist yet.
-Expected result: he is redirected to the login page. Works correctly. However: the user doesn’t have to log in anymore – he’s already logged in automatically after registering. Since this actually speeds up the process for the user, I choose to leave it like this, but redirect immediately to the “add report” page.
+**1 Create Report Functionality**
+    1. User files a report, describing the problem, entering the street name, and possibly adjust the date / time. He also can optionally upload a photo of the problem.
+    Expected result: after submitting he’s redirected to an overview of all the reported problems, last report (his own) shown first.
+    Works correctly.
+    1. User doesn’t mention the street name:
+    Expected result: upon submitting he gets a message that he has to do so before he’s able to file the report. Works correctly.
+    1. User doesn’t mention what the problem is:
+    Expected result: upon submitting he gets a message that he has to do so before he’s able to file the report. Works correctly.
 
-3: User tries to have a space in his username (so he wants it to exist of 2 separate words, i.e. first and last name).
-Expected result: this is automatically disabled. Works correctly.
+**1: Read Functionality (reported problems, regular user)**
+    1.Expected result if logged in as regular user:
+    Page that shows all the reports, ordered by date/time, latest filed report shown first. Reports show name of the street, reported problem, date and username of the person that filed the report. Toggle function that shows the response of the municipality as soon as there is a response.
+    Works correctly.
 
-D: Create Report Functionality
-1: User files a report, describing the problem, entering the street name, and possibly adjust the date / time. He also can optionally upload a photo of the problem.
-Expected result: after submitting he’s redirected to an overview of all the reported problems, last report (his own) shown first.
-Works correctly.
+**1 Read Functionality (reported problems, administrator)**
+    1. Expected result if logged in as administrator:
+    Page that shows all the reports, ordered by date/time, latest filed report shown first. Reports show name of the street, reported problem, date and username of the person that filed the report. Toggle function that shows the response of the municipality as soon as there is a response.
 
-2: User doesn’t mention the street name:
-Expected result: upon submitting he gets a message that he has to do so before he’s able to file the report. Works correctly.
+    1. In this environment every item has 2 buttons: Comment and Delete.
 
-3: User doesn’t mention what the problem is:
-Expected result: upon submitting he gets a message that he has to do so before he’s able to file the report. Works correctly.
+        1 Update Functionality (comment button):
+        The admin can comment on the report, with full rights to update / change every field. Additionally he can add a reply of the municipality (i.e.: we’re working on it, problem solved, etc.). After submitting the admin is redirected to the list of reported problems, where he can check his update.
+        Works correctly.
 
-E1: Read Functionality (reported problems, regular user)
-Expected result if logged in as regular user:
-Page that shows all the reports, ordered by date/time, latest filed report shown first. Reports show name of the street, reported problem, date and username of the person that filed the report. Toggle function that shows the response of the municipality as soon as there is a response.
-Works correctly.
+        1 Delete Functionality (delete button):
+        The admin can delete a report. Report disappears from the list of reported problems.
+        Works correctly.
 
-E2: Read Functionality (reported problems, administrator)
-Expected result if logged in as administrator:
-Page that shows all the reports, ordered by date/time, latest filed report shown first. Reports show name of the street, reported problem, date and username of the person that filed the report. Toggle function that shows the response of the municipality as soon as there is a response.
-
-In this environment every item has 2 buttons: Comment and Delete.
-
-E2.1 Update Functionality (comment button):
-The admin can comment on the report, with full rights to update / change every field. Additionally he can add a reply of the municipality (i.e.: we’re working on it, problem solved, etc.). After submitting the admin is redirected to the list of reported problems, where he can check his update.
-Works correctly.
-
-E.2.2 Delete Functionality (delete button):
-The admin can delete a report. Report disappears from the list of reported problems.
-Works correctly.
-
-F Logout Functionality:
+**1 Logout Functionality:**
 When clicked upon the user is logged out and redirected to the homepage.
 Works correctly.
-
-
 
 ### <a name="automated-testing"></a>Automated Testing
 **Validation services**<br>
