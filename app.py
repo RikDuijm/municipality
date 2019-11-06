@@ -1,6 +1,6 @@
 import os
 from flask import Flask, render_template, redirect, request, url_for, session
-from flask_pymongo import PyMongo
+from flask_pymongo import PyMongo # Needed to connect Flask to the MongoDB 
 from bson.objectid import ObjectId # Convert in Bson-bject to retrieve record in MongoDB by report ID
 from bson import Binary
 import re
@@ -26,12 +26,12 @@ mongo = PyMongo(app)
 - with the find() method, which will return everything.
 """
 
-# Because of the / decorator the default function that will be called will be get_reports. Change this later on!
 @app.route('/')
 @app.route('/index')
 def index():
     return render_template("index.html")
 
+# Code used from https://github.com/5pence/recipeGlut and changed for my own needs
 @app.route('/search')
 def search():
     """Provides logic for search bar"""
@@ -45,22 +45,6 @@ def search():
         ]
     }).sort('date', -1)
     return render_template('search.html', query=orig_query, results=results)
-
-# https://pypi.org/project/bcrypt/
-# https://stackoverflow.com/questions/38246412/bytes-object-has-no-attribute-encode
-# https://www.youtube.com/watch?v=vVx1737auSE
-# '''
-# >>> import bcrypt
-# >>> password = b"super secret password"
-# >>> # Hash a password for the first time, with a randomly-generated salt
-# >>> hashed = bcrypt.hashpw(password, bcrypt.gensalt())
-# >>> # Check that an unhashed password matches one that has previously been
-# >>> # hashed
-# >>> if bcrypt.checkpw(password, hashed):
-# ...     print("It Matches!")
-# ... else:
-# ...     print("It Does not Match :(")
-# '''
 
 @app.route('/register', methods=['POST', 'GET'])
 def register():
@@ -154,19 +138,6 @@ def delete_report(report_id):
     reports = mongo.db.reports
     reports.remove({'_id' : ObjectId(report_id)})
     return redirect(url_for('get_reports'))
-
-@app.route('/file/<filename>')
-def file(filename):
-    return mongo.send_file(filename)
-
-@app.route('/street/<streetname>')
-def street(streetname):
-    problems_in_street = mongo.db.reports.find_one_or_404({'streetname' : streetname})
-    return f'''
-           <h1>{streetname}</h1>
-           <img src="{url_for('file', filename = streetname['image-name'])}" width ="300">
-           '''
-
 
 if __name__ == '__main__':
     app.secret_key = os.getenv('SECRET_KEY')

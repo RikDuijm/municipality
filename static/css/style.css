@@ -46,7 +46,7 @@ body {
     }
 }
 
-@media (min-width: 1024x) {
+@media (min-width: 1024px) {
     #content-wrap {
         padding-bottom: 2rem;    /* Footer height */
     }
