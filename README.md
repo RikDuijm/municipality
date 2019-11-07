@@ -85,18 +85,23 @@ The website must be accessible. The user must be able to navigate quickly and in
 Based on those ideas, I made the following choices:
 
 - **Font**
+
 I chose the Font 'Roboto', sans-serif because this is a soothing, modern letter. This contributes to the clarity of the page.
 
 - **Colours**
+
 I chose to work with only four colours: a bright red, a dark blue for the navigation bar, a black font and a white background. This contributes to the clarity of the page, but shows also its business-like character and a certain authority.
 
 - **Content**
+
 The website is mobile first. The user must be able to report a problem on the spot, not having to start up his computer to do so. It means that the amount of information presented must be minimized. When entering the website it must be clear that reporting a problem is an easy, quick and painless process.
 
 - **Progress bar**
+
 To emphasize the ease of reporting an issue we make use of a progress bar, already in 20% when entering the website. That’s how quick it is!
 
 - **Images**
+
 Although the website must look visually nice, images are of no importance. It’s all about functionality. Therefore, the only image you see is the municipality arms.
 
 ### <a name="wireframes"></a>Wireframes
@@ -115,6 +120,7 @@ I created exactly what I had in mind, with the following exceptions:
 - Initially I was thinking about creating a Dashboard with information about the amount of problems the municipality solved. However I decided to not develop this, but move on with my studies.
 
 **Larger screens**
+
 There is hardly any difference between the mobile and larger screens. Because of that I didn’t feel the necessity to create wireframes for larger screens.
 
 ## <a name="features"></a>Functionality and Features
@@ -122,24 +128,30 @@ There is hardly any difference between the mobile and larger screens. Because of
 ### <a name="existing-features"></a>Existing features
 
 - **Search functionality**
+
 The municipality wants the user to look first if a problem is already reported. On the homepage there is a search functionality with the instruction “1. Look for reported problems – enter street name”.
 
 - **Login and Registration functionalities**
+
 After searching for reported problems in a given street the user has the possibility to login to report a new problem. Therefore he also has the possibility to register himself. In this application he can choose username and password, but in real life he would have to register with his full name and for example his id-number.
 If a user wants to register with an existing username, he gets a message that that username is already taken. When registered, the user can log in, providing his credentials. If he makes a typo, he receives a message to try it again.
 
 - **Report form**
+
 After successfully logging in the user is sent to the page where he can use a form to report a problem. His username is already selected and not changeable and also the date / time of the report is filled-in already. He can only fill out the street name and the problem he is reporting. Optionally he can also send in a photo taken of the problem. This photo enters the database. However, it won’t show on the website.
 
 - **Overview of reports**
+
 After submitting the form, the user is sent to a general overview of all the reported problems. The most recently reported problem will be on top of the list, so the user will see his report immediately. He can click on the report to see if the municipality already posted a reaction.
 
 - **Navigation bar and environment for admin**
+
 There is also a navigation bar on top of the page. If a user logs in using the navigation bar, he technically can report a problem at once, without having to look if it’s already reported. Obviously I could choose to delete the login in the navigation bar, but a user can also be an administrator, and I’ve chosen to maintain the login so that the administrator can enter the system as quickly as possible. He can do so to provide his credentials and he get an overview of all the reports, most recently reported first. Here, he can comment on reports or delete them, something a regular user cannot do. Obviously the administrator can also search per street name.
 
 *`Please check this environment with the following credentials: Username: admin, Password: admin.`*
 
 - **Footer**
+
 Allows the user to see the contact details and opening hours of the municipality and their social media canals (Facebook, Instagram, Twitter). None are clickable for now.
 
 ### <a name="features-left-to-implement"></a>Features left to Implement
@@ -222,10 +234,10 @@ Expected result: he is redirected to an overview of all reported problems. This 
 
 *`Please check this environment with the following credentials: Username: admin, Password: admin.`*
 
-1. Administrator fills in wrong username but correct password:
+6. Administrator fills in wrong username but correct password:
 Expected result: admin receives message “wrong credentials.
 
-1. Administrator fills in correct username but incorrect password
+7. Administrator fills in correct username but incorrect password
 Expected result: admin receives message “wrong credentials.
 
 **3. Register Functionality**
@@ -258,7 +270,7 @@ Page that shows all the reports, ordered by date/time, latest filed report shown
 
 *`Please check this environment with the following credentials: Username: admin, Password: admin.`*
 
-   1. In this environment every item has 2 buttons: Comment and Delete.
+   2. In this environment every item has 2 buttons: Comment and Delete.
 	   1.  Update Functionality (comment button):
 The admin can comment on the report, with full rights to update / change every field. Additionally he can add a reply of the municipality (i.e.: we’re working on it, problem solved, etc.). After submitting the admin is redirected to the list of reported problems, where he can check his update.
 	   1.  Delete Functionality (delete button):
@@ -282,25 +294,32 @@ After finishing my first Milestone Project I made a complaint that we hadn't had
 *I have passed your valuable feedback over to the learning Success Team. I have spoken to someone from the team and they agreed that more information about testing and deployment is due. This is being looked into and in the process of being improved.*
 
 I again made a complaint upon starting this Milestone Project:
+
 *So far we only got a quick introduction to Jasmine with only 1 specific example. I feel that in the Milestone Projects there's an emphasis on the importance of testing, that isn't reflected in the course and based on this 1 lesson I can't create automated testing for this project.*
 
 Now, with the third milestone, again I don’t feel that we received enough – if any – instructions or practice about how to test our projects. I really feel that if you think this is important you should teach us well how to do this. I don’t think I have received the tools to be able to do this.
 Given the above and since I've tested all functionalities extensively manually and am sure everything works as I planned for, I didn't do further automated testing.
 
 ## <a name="deployment"></a>Deployment
+
 The project was coded in Gitpod, which also was used for version control, and then uploaded to Github. Finally I made a connection between Github and Heroku to deploy the project.
 
 **Connection with MongoDB Atlas**
+
 A MongoDB Atlas database was used. To connect Flask to the MongoDB I installed the third party library flaks-pymongo. I also installed dnspython to use the new style connection string for MongoDB Atlas.
 
 **Connection string and secret key**
+
 In the app.py the os class getenv method is used to point Heroku to the config variable (MONGO_URI) and the secret key necessary for the login function in order to keep the production database connection string and the key secret.
 
 **Requirements and Procfile**
+
 A requirements.txt file is used to specify the dependencies that are required for the application to work.
+
 A Procfile is also used to specify to Heroku the commands that are executed by the app on startup.
 
 **Connection between Github and Heroku**
+
 To connect the Github repository to Heroku I went to the “Deploy” tab on Heroku Dashboard and select the GitHub pane. I choose the option to auto-deploy the project whenever it’s pushed to on Github.
 
 Finally I specified the IP, PORT, my connection string and secret key in the Heroku settings.
@@ -318,9 +337,11 @@ To add this repository to your local workspace:
 
 ### <a name="content"></a>Content
 - **Written content**
+
 All written content on this website was made by me.
 
 - **Icons**
+
 The municipality icon was taken from icons8.com and is free of use as long as you put a link to the website - which I did in the footer.
 The social media icons are from Font Awesome.
 
