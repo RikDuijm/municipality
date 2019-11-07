@@ -11,6 +11,7 @@
                 <form action="{{url_for('register')}}" method="POST">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Username (spaces not allowed)</label>
+                        <!-- AvoidSpace will trigger the JavaScript function-->
                         <input id="register-username" name="username" type="text" class="form-control" placeholder="Username" onkeypress="return AvoidSpace(event)">
                     </div>
                     <div class="form-group">

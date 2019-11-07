@@ -5,6 +5,7 @@
         <h1>Quickly report a problem in your neighbourhood</h1>
         <h2>2. Check reported problems in <span class="text-danger">{{ query }}</span>.</h2>
 
+        <!-- Check if user is signed in. If not he sees button Login -->
         {% if 'username' in session %}
         {% else %}
             <div class="col-sm-6 login-button">
@@ -14,8 +15,10 @@
 
         <div id="accordion">
             <div class="card">
+                <!-- For loop to show all result of search query in database-->
                 {% for report in results %}
                     <div class="card-header text-left">
+                        <!-- Check if user is admin. In that case he may delete reports / comment on them. Normal user can't see these buttons. -->
                         {% if session['username'] == 'admin' %}
                         <a href="{{url_for('edit_report', report_id=report._id)}}" class="btn btn-danger" role="button">Comment</a>
                         <a href="{{url_for('delete_report', report_id=report._id)}}" class="btn btn-danger" role="button">Delete</a>

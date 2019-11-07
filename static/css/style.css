@@ -1,6 +1,4 @@
 /* ------------------------------------------------------------------------------------------- Body - Layout */
-
-
 body {
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
@@ -15,6 +13,14 @@ body {
     background-position: top;
 }
 
+.progress {
+    width: 100%;
+    margin-top: 10%;
+    margin-bottom: 5%;
+    position: inherit;
+}
+
+/* Maintaining a fixed footer, also when there are many problems reported */
 #page-container {
     position: relative;
     min-height: 80vh;
@@ -34,41 +40,9 @@ body {
     height: 7rem;     /* Footer height */
 }
 
-@media (min-width: 768px) {
-    #content-wrap {
-        padding-bottom: 0.4rem;    /* Footer height */
-    }
-}
-
-@media (min-width: 768px) {
-    #footer {
-        height: 0.4rem;     /* Footer height */
-    }
-}
-
-@media (min-width: 1024px) {
-    #content-wrap {
-        padding-bottom: 2rem;    /* Footer height */
-    }
-}
-
-@media (min-width: 1024px) {
-    #footer {
-        height: 2rem;     /* Footer height */
-    }
-}
-
-
-.login-form {
-    align-content: center;
-}
-
-.logged-in, .welcome {
-    margin-bottom: 10px;
-}
-
-.text-small {
-    font-size: 10px;
+/* ------------------------------------------------------------------------------------------- Font General / Media Queries see below */
+.white-space {
+    margin-top: 40px;
 }
 
 h1 {
@@ -76,23 +50,9 @@ h1 {
     padding-bottom: 5%;
 }
 
-@media (min-width: 768px) {
-    h1 {
-        font-size: 3em;
-    }
-}
-
 h2 {
     font-size: 1em;
     padding-bottom: 5%;
-
-}
-
-@media (min-width: 768px) {
-    h2 {
-        font-size: 2.2em;
-        padding-bottom: 2%;
-    }
 }
 
 h3 {
@@ -101,27 +61,12 @@ h3 {
     padding-left: 2%;
 }
 
-@media (min-width: 768px) {
-    h3 {
-        font-size: 1.8em;
-        padding-bottom: 2%;
-    }
-}
-
-.introduction-header {
-    margin-top: 10px;
-    margin-bottom: -12px;
-    color: #d32f2f;
-}
-
 .introduction-text, .footer-text {
   font-size: 14px;
 }
 
-@media (min-width: 768px) {
-    .introduction-text, .footer-text {
-        font-size: 18px;
-    }
+.text-small {
+    font-size: 10px;
 }
 
 .link-red, .fab {
@@ -138,23 +83,33 @@ h3 {
     margin-left: 10px;
 }
 
-.white-space {
-    margin-top: 40px;
-}
 
-.progress {
-    width: 100%;
-    margin-top: 10%;
-    margin-bottom: 5%;
-    position: inherit;
-}
-
-/* ------------------------------------------------------------------------------------------- index*/
+/* ------------------------------------------------------------------------------------------- Index*/
 .search-input-index {
     margin-right: 20px;
 }
 
-/* ------------------------------------------------------------------------------------------- butons*/
+.introduction-header {
+    margin-top: 10px;
+    margin-bottom: -12px;
+    color: #d32f2f;
+}
+
+.introduction-text {
+    margin-bottom: 5%;
+}
+
+/* ------------------------------------------------------------------------------------------- Login*/
+.login-form {
+    align-content: center;
+}
+
+.logged-in, .welcome {
+    margin-bottom: 10px;
+}
+
+
+/* ------------------------------------------------------------------------------------------- Butons*/
 .login-button {
     margin-left: auto;
     margin-right: auto;
@@ -171,11 +126,52 @@ h3 {
     margin-right: 5px;
 }
 
-/* ------------------------------------------------------------------------------------------- reports*/
+/* ------------------------------------------------------------------------------------------- Reports*/
 .mouse {
     cursor: pointer;
 }
 
 .small-font {
     font-size: 12px;
+}
+
+
+/* ------------------------------------------------------------------------------------------- Media Queries*/
+@media (min-width: 768px) {
+    #content-wrap {
+        padding-bottom: 0.4rem;    /* Footer height */
+    }
+
+    #footer {
+        height: 0.4rem;     /* Footer height */
+    }
+
+    h1 {
+        font-size: 3em;
+    }
+
+    h2 {
+        font-size: 2.2em;
+        padding-bottom: 2%;
+    }
+
+    h3 {
+        font-size: 1.8em;
+        padding-bottom: 2%;
+    }
+
+    .introduction-text, .footer-text {
+        font-size: 18px;
+    }
+
+}
+
+@media (min-width: 1024px) {
+    #content-wrap {
+        padding-bottom: 2rem;    /* Footer height */
+    }
+
+    #footer {
+        height: 2rem;     /* Footer height */
+    }
 }
