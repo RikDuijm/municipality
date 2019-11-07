@@ -306,7 +306,7 @@ A Procfile is also used to specify to Heroku the commands that are executed by t
 To connect the Github repository to Heroku I went to the “Deploy” tab on Heroku Dashboard and select the GitHub pane. I choose the option to auto-deploy the project whenever it’s pushed to on Github.
 Finally I specified the IP, PORT, my connection string and secret key in the Heroku settings.
 
-*`View deployed version on [Heroku](http://municipality-reports.herokuapp.com/)`*
+**View deployed version on [Heroku](http://municipality-reports.herokuapp.com/)**
 
 - **To add this repository to your local workspace:**
 
