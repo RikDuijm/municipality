@@ -152,10 +152,10 @@ I figured out how to retrieve this internally using the filename, but not how to
 	-   HTML5
 	-   CSS
 	-   Python
-	-  JS
+	-   JS
 
 - **Libraries, plugins and modules**
-	- Bootstrap 4 for the grid system of the page, the form and the progress bar.
+	- Bootstrap 4 for the grid system of the page, the form and the progress bar
 	- Flask to construct and render pages
 	- Jinja2 to simplify displaying data from the backend
 	- Re for the search functionaluty
@@ -268,7 +268,7 @@ The following validation services were used to check the validity of my code.
 -   W3C CSS validation was used to validate CSS.
 -   JSHint was used to validate JavaScript.
 
-#### Note for Code Institute
+#### <a name="note"></a>Note for Code Institute
 After finishing my first Milestone Project I made a complaint that we hadn't had a single lesson about testing our code, but that you expect us to be able to do this. The reply I received:
 *I have passed your valuable feedback over to the learning Success Team. I have spoken to someone from the team and they agreed that more information about testing and deployment is due. This is being looked into and in the process of being improved.  *
 
@@ -303,7 +303,7 @@ To add this repository to your local workspace:
 
 -   Go into your local workspace and open up a new terminal (git bash).
 -   You have to be inside of the directory that you want to add the cloning to.
--   Type git clone, paste the following URL ([https://github.com/RikDuijm/municipality/](https://github.com/RikDuijm/travel-guide.git)) and press enter. The process of cloning will now be completed.
+-   Type git clone, paste the following URL ([https://github.com/RikDuijm/municipality/](https://github.com/RikDuijm/municipality)) and press enter. The process of cloning will now be completed.
 
 ## <a name="credits"></a>Credits
 
