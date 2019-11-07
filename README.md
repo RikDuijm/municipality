@@ -115,7 +115,6 @@ I created exactly what I had in mind, with the following exceptions:
 - Initially I was thinking about creating a Dashboard with information about the amount of problems the municipality solved. However I decided to not develop this, but move on with my studies.
 
 **Larger screens**
-
 There is hardly any difference between the mobile and larger screens. Because of that I didn’t feel the necessity to create wireframes for larger screens.
 
 ## <a name="features"></a>Functionality and Features
@@ -194,8 +193,7 @@ I tested the functionalities by going through the steps a user should take to re
 
 **1. Search Functionality**
 1. Filling in a street name that is already in the database (because a problem has been reported):
-
-Expected result: street name + problem.
+Expected result: street name and problem is shown.
 
 1. Testing if the search functionality is case sensitive:
 Expected result: not case sensitive. I tested this by filling in lower key, capital letters and a combination of upper and lower.
@@ -214,20 +212,21 @@ Expected result: yes.
 Expected result: he is redirected to the “add report” page, and the message “Welcome [username]” is shown. His username is already filled-in and the user cannot change this. Also the date is already filled-in. This is changeable.
 
 1. User (citizen) fills in unknown username but correct password:
-Expected result: receives message “wrong credentials".
+Expected result: user receives message “wrong credentials".
 
 1. User (citizen) fills in correct username but incorrect password:
-Expected result: receives message “wrong credentials.
+Expected result: user receives message “wrong credentials.
 
 1. Administrator fills in correct credentials:
 Expected result: he is redirected to an overview of all reported problems. This is the administration environment, in which admin may comment on a problem or delete it. Regular user cannot reach this. Message “Logged in as Admin” is shown.
 
+*`Please check this environment with the following credentials: Username: admin, Password: admin.`*
+
 1. Administrator fills in wrong username but correct password:
-Expected result: receives message “wrong credentials.
+Expected result: admin receives message “wrong credentials.
 
 1. Administrator fills in correct username but incorrect password
-
-Expected result: receives message “wrong credentials.
+Expected result: admin receives message “wrong credentials.
 
 **3. Register Functionality**
 1. User chooses a username that already exists:
@@ -251,11 +250,13 @@ Expected result: upon submitting he gets a message that he has to do so before h
 
 **5. Read Functionality (reported problems, regular user)**
 1. Expected result if logged in as regular user:
-Page that shows all the reports, ordered by date/time, latest filed report shown first. Reports show name of the street, reported problem, date and username of the person that filed the report. Toggle function that shows the response of the municipality as soon as there is a response.
+Page that shows all the reports, ordered by date/time, latest filed report shown first. Reports show name of the street, reported problem, date and username of the person that filed the report. Toggle function that shows the response of the municipality as soon as there is one.
 
 **6. Read Functionality (reported problems, administrator)**
 1. Expected result if logged in as administrator:
 Page that shows all the reports, ordered by date/time, latest filed report shown first. Reports show name of the street, reported problem, date and username of the person that filed the report. Toggle function that shows the response of the municipality as soon as there is a response.
+
+*`Please check this environment with the following credentials: Username: admin, Password: admin.`*
 
    1. In this environment every item has 2 buttons: Comment and Delete.
 	   1.  Update Functionality (comment button):
@@ -264,6 +265,7 @@ The admin can comment on the report, with full rights to update / change every f
 The admin can delete a report. Report disappears from the list of reported problems.
 
 **7. Logout Functionality**
+
 When clicked upon the user is logged out and redirected to the homepage.
 
 ### <a name="automated-testing"></a>Automated Testing
@@ -276,28 +278,29 @@ The following validation services were used to check the validity of my code.
 
 #### <a name="note"></a>Note for Code Institute
 After finishing my first Milestone Project I made a complaint that we hadn't had a single lesson about testing our code, but that you expect us to be able to do this. The reply I received:
-*I have passed your valuable feedback over to the learning Success Team. I have spoken to someone from the team and they agreed that more information about testing and deployment is due. This is being looked into and in the process of being improved.  *
+
+*I have passed your valuable feedback over to the learning Success Team. I have spoken to someone from the team and they agreed that more information about testing and deployment is due. This is being looked into and in the process of being improved.*
 
 I again made a complaint upon starting this Milestone Project:
-*So far we only got a quick introduction to Jasmine with only 1 specific example. I feel that in the Milestone Projects there's an emphasis on the importance of testing, that isn't reflected in the course and based on this 1 lesson I can't create automated testing for this project. *
+*So far we only got a quick introduction to Jasmine with only 1 specific example. I feel that in the Milestone Projects there's an emphasis on the importance of testing, that isn't reflected in the course and based on this 1 lesson I can't create automated testing for this project.*
 
-Now, with the third milestone, again I don’t feel that we received enough – if any – instructions or practice about how to test our projects. I really feel that if you think this is important you should teach us well how to do this. I don’t think I have received the tools to be able to do so.
+Now, with the third milestone, again I don’t feel that we received enough – if any – instructions or practice about how to test our projects. I really feel that if you think this is important you should teach us well how to do this. I don’t think I have received the tools to be able to do this.
 Given the above and since I've tested all functionalities extensively manually and am sure everything works as I planned for, I didn't do further automated testing.
 
 ## <a name="deployment"></a>Deployment
 The project was coded in Gitpod, which also was used for version control, and then uploaded to Github. Finally I made a connection between Github and Heroku to deploy the project.
 
-Connection with MongoDB Atlas
+**Connection with MongoDB Atlas**
 A MongoDB Atlas database was used. To connect Flask to the MongoDB I installed the third party library flaks-pymongo. I also installed dnspython to use the new style connection string for MongoDB Atlas.
 
-Connection string and secret key
+**Connection string and secret key**
 In the app.py the os class getenv method is used to point Heroku to the config variable (MONGO_URI) and the secret key necessary for the login function in order to keep the production database connection string and the key secret.
 
-Requirements and Procfile
+**Requirements and Procfile**
 A requirements.txt file is used to specify the dependencies that are required for the application to work.
 A Procfile is also used to specify to Heroku the commands that are executed by the app on startup.
 
-Connection between Github and Heroku
+**Connection between Github and Heroku**
 To connect the Github repository to Heroku I went to the “Deploy” tab on Heroku Dashboard and select the GitHub pane. I choose the option to auto-deploy the project whenever it’s pushed to on Github.
 
 Finally I specified the IP, PORT, my connection string and secret key in the Heroku settings.
@@ -317,12 +320,12 @@ To add this repository to your local workspace:
 - **Written content**
 All written content on this website was made by me.
 
-**Icons**
+- **Icons**
 The municipality icon was taken from icons8.com and is free of use as long as you put a link to the website - which I did in the footer.
 The social media icons are from Font Awesome.
 
 ### <a name="help-with-code"></a>Help with code
-- The code to restrict the space character when registering a new user I got from this [page](https://jsfiddle.net/taditdash/hDtA3).
+- The code to restrict the space character when registering a new user, I got from this [page](https://jsfiddle.net/taditdash/hDtA3).
 - The code for the search functionaly I found on this [page](https://github.com/5pence/recipeGlut). I adapted it slightly for my own needs.
 - I used a combination of the documentation of Bcrypt, tutorials and examples / solutions I found on Google to develop the Registration and Login functionality. I combined all those sources in a long and frustrating process to get the functionalities to work. However, I didn't use code of others 1 on 1.
 
