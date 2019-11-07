@@ -84,7 +84,7 @@ The website must be accessible. The user must be able to navigate quickly and in
 
 Based on those ideas, I made the following choices:
 
-- **Font**
+- **Font**<br>
 I chose the Font 'Roboto', sans-serif because this is a soothing, modern letter. This contributes to the clarity of the page.
 
 - **Colours**
