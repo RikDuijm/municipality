@@ -87,20 +87,16 @@ Based on those ideas, I made the following choices:
 - **Font**<br>
 I chose the Font 'Roboto', sans-serif because this is a soothing, modern letter. This contributes to the clarity of the page.
 
-- **Colours**
-
+- **Colours**<br>
 I chose to work with only four colours: a bright red, a dark blue for the navigation bar, a black font and a white background. This contributes to the clarity of the page, but shows also its business-like character and a certain authority.
 
-- **Content**
-
+- **Content**<br>
 The website is mobile first. The user must be able to report a problem on the spot, not having to start up his computer to do so. It means that the amount of information presented must be minimized. When entering the website it must be clear that reporting a problem is an easy, quick and painless process.
 
-- **Progress bar**
-
+- **Progress bar**<br>
 To emphasize the ease of reporting an issue we make use of a progress bar, already in 20% when entering the website. That’s how quick it is!
 
-- **Images**
-
+- **Images**<br>
 Although the website must look visually nice, images are of no importance. It’s all about functionality. Therefore, the only image you see is the municipality arms.
 
 ### <a name="wireframes"></a>Wireframes
@@ -118,39 +114,32 @@ I created exactly what I had in mind, with the following exceptions:
 - In wireframe 4 it was possible for a user to comment on a problem. To minimize possible abuse (or complaints about the time it takes for the municipality to act upon something) I decided to make this option not available for the public, but only for the administrator. Also, the position of the button “comment” (and “delete”) has changed, and are not placed vertically instead of horizontally, because of readability issues on a mobile phone.
 - Initially I was thinking about creating a Dashboard with information about the amount of problems the municipality solved. However I decided to not develop this, but move on with my studies.
 
-**Larger screens**
-
+**Larger screens**<br>
 There is hardly any difference between the mobile and larger screens. Because of that I didn’t feel the necessity to create wireframes for larger screens.
 
 ## <a name="features"></a>Functionality and Features
 
 ### <a name="existing-features"></a>Existing features
 
-- **Search functionality**
-
+- **Search functionality**<br>
 The municipality wants the user to look first if a problem is already reported. On the homepage there is a search functionality with the instruction “1. Look for reported problems – enter street name”.
 
-- **Login and Registration functionalities**
-
+- **Login and Registration functionalities**<br>
 After searching for reported problems in a given street the user has the possibility to login to report a new problem. Therefore he also has the possibility to register himself. In this application he can choose username and password, but in real life he would have to register with his full name and for example his id-number.
 If a user wants to register with an existing username, he gets a message that that username is already taken. When registered, the user can log in, providing his credentials. If he makes a typo, he receives a message to try it again.
 
-- **Report form**
-
+- **Report form**<br>
 After successfully logging in the user is sent to the page where he can use a form to report a problem. His username is already selected and not changeable and also the date / time of the report is filled-in already. He can only fill out the street name and the problem he is reporting. Optionally he can also send in a photo taken of the problem. This photo enters the database. However, it won’t show on the website.
 
-- **Overview of reports**
-
+- **Overview of reports**<br>
 After submitting the form, the user is sent to a general overview of all the reported problems. The most recently reported problem will be on top of the list, so the user will see his report immediately. He can click on the report to see if the municipality already posted a reaction.
 
-- **Navigation bar and environment for admin**
-
+- **Navigation bar and environment for admin**<br>
 There is also a navigation bar on top of the page. If a user logs in using the navigation bar, he technically can report a problem at once, without having to look if it’s already reported. Obviously I could choose to delete the login in the navigation bar, but a user can also be an administrator, and I’ve chosen to maintain the login so that the administrator can enter the system as quickly as possible. He can do so to provide his credentials and he get an overview of all the reports, most recently reported first. Here, he can comment on reports or delete them, something a regular user cannot do. Obviously the administrator can also search per street name.
 
 *`Please check this environment with the following credentials: Username: admin, Password: admin.`*
 
-- **Footer**
-
+- **Footer**<br>
 Allows the user to see the contact details and opening hours of the municipality and their social media canals (Facebook, Instagram, Twitter). None are clickable for now.
 
 ### <a name="features-left-to-implement"></a>Features left to Implement
@@ -303,34 +292,27 @@ Given the above and since I've tested all functionalities extensively manually a
 
 The project was coded in Gitpod, which also was used for version control, and then uploaded to Github. Finally I made a connection between Github and Heroku to deploy the project.
 
-**Connection with MongoDB Atlas**
-
+- **Connection with MongoDB Atlas**
 A MongoDB Atlas database was used. To connect Flask to the MongoDB I installed the third party library flaks-pymongo. I also installed dnspython to use the new style connection string for MongoDB Atlas.
 
-**Connection string and secret key**
-
+- **Connection string and secret key**
 In the app.py the os class getenv method is used to point Heroku to the config variable (MONGO_URI) and the secret key necessary for the login function in order to keep the production database connection string and the key secret.
 
-**Requirements and Procfile**
-
+- **Requirements and Procfile**
 A requirements.txt file is used to specify the dependencies that are required for the application to work.
-
 A Procfile is also used to specify to Heroku the commands that are executed by the app on startup.
 
-**Connection between Github and Heroku**
-
+- **Connection between Github and Heroku**
 To connect the Github repository to Heroku I went to the “Deploy” tab on Heroku Dashboard and select the GitHub pane. I choose the option to auto-deploy the project whenever it’s pushed to on Github.
-
 Finally I specified the IP, PORT, my connection string and secret key in the Heroku settings.
 
+*`View deployed version on [Heroku](http://municipality-reports.herokuapp.com/)`*
 
-View deployed version on [Heroku](http://municipality-reports.herokuapp.com/)
+- **To add this repository to your local workspace:**
 
-To add this repository to your local workspace:
-
--   Go into your local workspace and open up a new terminal (git bash).
--   You have to be inside of the directory that you want to add the cloning to.
--   Type git clone, paste the following URL ([https://github.com/RikDuijm/municipality/](https://github.com/RikDuijm/municipality)) and press enter. The process of cloning will now be completed.
+    -   Go into your local workspace and open up a new terminal (git bash).
+    -   You have to be inside of the directory that you want to add the cloning to.
+    -   Type git clone, paste the following URL ([https://github.com/RikDuijm/municipality/](https://github.com/RikDuijm/municipality)) and press enter. The process of cloning will now be completed.
 
 ## <a name="credits"></a>Credits
 
