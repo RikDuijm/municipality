@@ -46,37 +46,38 @@ The citizens of a given municipality.
 
 ### <a name="user-stories"></a>User Stories
 **As the municipality, I would like to serve my citizens by offering an application that:**
-- gives a quick overview on reported problems and the status of those problems
-- gives a possibility to quickly report problems
+- gives a quick overview on reported problems and the status of those problems.
+- gives a possibility to quickly report problems.
 
 **Furthermore, as the municipality, I would like to make sure that:**
 - only registered citizens can report a problem.
-- citizens cannot comment or delete reports
+- citizens cannot comment or delete reports.
 
 **As a user I’d like to:**<br>
 - see if problems in my neighbourhood are reported to the municipality.
-- see what is being done to solve those problems
+- see what is being done to solve those problems.
 - have the possibility to report a problem as quickly as possible, without any hassle and to see a written proof that I’ve reported this.
 
 ### <a name="application"></a>The application
 **What are we making?**<br>
-Given the obvious desire of a municipality to serve its citizens as transparently as possible, we want to set up a clean, fast and well-arranged application, which gives the user the opportunity to quickly scan for reported problems in his neighbourhood. If the user sees that something isn’t reported yet, he has to log in – to minimize the possibility if misuse of the app. After logging in, the user can report a new issue quickly and sees that is has been reported.
+Given the desire of a municipality to serve its citizens as transparently as possible, we want to set up a clean, fast and well-arranged application, which gives the user the opportunity to quickly scan for reported problems in his neighbourhood. If the user sees that something isn’t reported yet, he has to log in – to minimize the possibility of misuse of the app. After logging in, the user can report a new issue quickly. He immediately sees that is has been reported.
 
-The whole process must be easy and painless, something very refreshing for the citizens after earlier experiences. This new elected guys actually can think!
+The whole process must be easy and painless, something very refreshing for the citizens after earlier experiences.
+*This new elected guys actually can think!*
 
-The municipality wants the user to first check if a problem is already reported, to minimize the problems that are reported several times. Therefore, on the homepage the first thing that a user can do is to check by street name if a problem is already registered. Afterwards he has to login, to be able to report a new issue. This is to minimalize the abuse of the page.
+The municipality wants the user to first check if a problem is already reported, to minimize the number of problems that are reported several times. Therefore, the first thing that a user can do on the homepage is to check by street name if a problem is already registered. Afterwards he has to login, to be able to report a new issue.
 
-Only administrators of the municipality can delete or comment (informing the public about what’s being done) on a problem. So there must be 2 environments on the website, based on the rights of a user (citizen or administrator).
+Only administrators of the municipality can delete a report, or comment (informing the public about what’s being done) on it. So there must be 2 environments on the website, based on the rights of a user (citizen or administrator).
 
 **Why does the user want this?**<br>
-The user / the citizen wants firstly to be able to see if a problem is already reported, and secondly communicate problems with the municipality without hassle / having to waste time in a phone call. Finally he wants to see his report back, so that he’s sure that the municipality has to do something about it.
+The user / the citizen wants to be able to see if a problem is already reported and if not, communicate problems with the municipality without hassle / having to waste time in a phone call. Finally he wants to see his report back, so that he’s sure that the municipality has to do something about it.
 
 ### <a name="user-experience"></a>User Experience
 
 **What makes a good user experience?**<br>
-- Presenting an easy navigable, comprehensive tool to search for problems in a given street and, if a problem is not reported yet, to report it easily.
+- Presenting an easy navigable, comprehensive tool to search for problems in a given street and, if a problem is not reported yet, making it as easy as possible for the user to report it.
 - To lower the threshold for a citizen to communicate with the municipality, it must take the least amount of time possible to report a problem.
-- The idea that the municipality act upon reported problems.
+- The idea that the municipality acts upon reported problems.
 
 ### <a name="design-ideas"></a>Design Ideas
 The website must be accessible. The user must be able to navigate quickly and intuitively and must easily find all relevant information. Given the fact that it’s a website of a city council it also must have a business-like and lean design.
@@ -87,13 +88,13 @@ Based on those ideas, I made the following choices:
 I chose the Font 'Roboto', sans-serif because this is a soothing, modern letter. This contributes to the clarity of the page.
 
 - **Colours**
-I chose to work with only three colours: a bright red, a black font and a clear white background. This also contributes to the clarity of the page, but shows also its business-like character and a certain authority.
+I chose to work with only four colours: a bright red, a dark blue for the navigation bar, a black font and a white background. This contributes to the clarity of the page, but shows also its business-like character and a certain authority.
 
 - **Content**
 The website is mobile first. The user must be able to report a problem on the spot, not having to start up his computer to do so. It means that the amount of information presented must be minimized. When entering the website it must be clear that reporting a problem is an easy, quick and painless process.
 
 - **Progress bar**
-To emphasize the ease of reporting an issue we make use of a progress bar, already in 25% when entering the website. That’s how quick it is!
+To emphasize the ease of reporting an issue we make use of a progress bar, already in 20% when entering the website. That’s how quick it is!
 
 - **Images**
 Although the website must look visually nice, images are of no importance. It’s all about functionality. Therefore, the only image you see is the municipality arms.
@@ -103,15 +104,15 @@ This is a mobile first app. I expect the client to use this app mostly on a mobi
 
 The whole design and the choices I made are based on that assumption. I made six mobile wireframes, reflecting the process of reporting a problem described above.
 
-1. [initial screen](https://github.com/RikDuijm/municipality/blob/master/user-design-experience/Municipality%20App%201.jpg)<br>
-2. [screen after searching on street name](https://github.com/RikDuijm/municipality/blob/master/user-design-experience/Municipality%20App%202.jpg)<br>
-3. [screen for log in](https://github.com/RikDuijm/municipality/blob/master/user-design-experience/Municipality%20App%203.jpg)<br>
-4. [overview of reports](https://github.com/RikDuijm/municipality/blob/master/user-design-experience/Municipality%20App%204.jpg)<br>
+1. [initial screen](https://github.com/RikDuijm/municipality/blob/master/user-design-experience/Municipality%20App%201.jpg)
+2. [screen after searching on street name](https://github.com/RikDuijm/municipality/blob/master/user-design-experience/Municipality%20App%202.jpg)
+3. [screen for log in](https://github.com/RikDuijm/municipality/blob/master/user-design-experience/Municipality%20App%203.jpg)
+4. [overview of reports](https://github.com/RikDuijm/municipality/blob/master/user-design-experience/Municipality%20App%204.jpg)
 5. [form to report a problem](https://github.com/RikDuijm/municipality/blob/master/user-design-experience/Municipality%20App%205.jpg)
 
 I created exactly what I had in mind, with the following exceptions:
-- In wireframe 4 it was possible for a user to comment on a problem. To minimize possible abuse (or complaint about the time it takes for the municipality to act upon something) I decided to make this option not available for the public, but only for the administrator. Also, the position of the button “comment” (and “delete”) has changed, and are not placed vertically instead of horizontally, because of readability issues on a mobile phone.
-- Initially I was thinking about creating a Dashboard with information about the amount of problems the municipality solved. However I decided to not develop this, but move on with my studies. Basically I’m behind my schedule because of personal problems distracting me.
+- In wireframe 4 it was possible for a user to comment on a problem. To minimize possible abuse (or complaints about the time it takes for the municipality to act upon something) I decided to make this option not available for the public, but only for the administrator. Also, the position of the button “comment” (and “delete”) has changed, and are not placed vertically instead of horizontally, because of readability issues on a mobile phone.
+- Initially I was thinking about creating a Dashboard with information about the amount of problems the municipality solved. However I decided to not develop this, but move on with my studies.
 
 **Larger screens**
 There is hardly any difference between the mobile and larger screens. Because of that I didn’t feel the necessity to create wireframes for larger screens.
@@ -121,19 +122,22 @@ There is hardly any difference between the mobile and larger screens. Because of
 ### <a name="existing-features"></a>Existing features
 
 - **Search functionality**
-The municipality wants the user to first search if a problem is already reported. On the homepage there is a search functionality with the instruction “1. Look for reported problems – enter street name”.
+The municipality wants the user to look first if a problem is already reported. On the homepage there is a search functionality with the instruction “1. Look for reported problems – enter street name”.
 
 - **Login and Registration functionalities**
-After searching for reported problems in a given street the user has the possibility to login to report a new problem. Obviously therefore he also has the possibility to register himself. In this application he can choose username and password, but obviously in real life it would be possible that he has to register with this full name and id-number, for example. If a user wants to register with an existing username, he gets a message that that username is already taken. After registering the user is automatically sent to the login page, where he has to provide his credentials. If he makes a typo logging in he receives a message to try it again.
+After searching for reported problems in a given street the user has the possibility to login to report a new problem. Therefore he also has the possibility to register himself. In this application he can choose username and password, but in real life he would have to register with his full name and for example his id-number.
+If a user wants to register with an existing username, he gets a message that that username is already taken. When registered, the user can log in, providing his credentials. If he makes a typo, he receives a message to try it again.
 
 - **Report form**
-After successfully logging in the user is sent to the page where he can use a form to report a problem. His username is already selected and not changeable and also the date / time of the report is filled-in already. He can only fill out the street name and the problem he is reporting. Optionally he can also send in a photo taken of the photo. This photo enters the database. However, it won’t show on the website.
+After successfully logging in the user is sent to the page where he can use a form to report a problem. His username is already selected and not changeable and also the date / time of the report is filled-in already. He can only fill out the street name and the problem he is reporting. Optionally he can also send in a photo taken of the problem. This photo enters the database. However, it won’t show on the website.
 
 - **Overview of reports**
-After submitting the form the user is sent to a general overview of all the reported problems. The most recently reported problem will be on top of the list, so the user will see his report immediately. He can click on the report to see if the municipality already posted a reaction.
+After submitting the form, the user is sent to a general overview of all the reported problems. The most recently reported problem will be on top of the list, so the user will see his report immediately. He can click on the report to see if the municipality already posted a reaction.
 
 - **Navigation bar and environment for admin**
-There is also a navigation bar on top of the page. If a user logs in using the navigation bar, he technically can report a problem at once, without having to look if it’s already reported. Obviously I could choose to delete the login in the navigation bar, but a user can also be an administrator, and I’ve chosen to maintain the login so that the administrator can enter the system as quickly as possible. He can do so to provide his credentials (for now Username: admin, Password: admin) and he get an overview of all the reports, most recently reported first. Here, he can comment on reports or delete them, something a regular user cannot do. Obviously the administrator can also search per street name.
+There is also a navigation bar on top of the page. If a user logs in using the navigation bar, he technically can report a problem at once, without having to look if it’s already reported. Obviously I could choose to delete the login in the navigation bar, but a user can also be an administrator, and I’ve chosen to maintain the login so that the administrator can enter the system as quickly as possible. He can do so to provide his credentials and he get an overview of all the reports, most recently reported first. Here, he can comment on reports or delete them, something a regular user cannot do. Obviously the administrator can also search per street name.
+
+*`Please check this environment with the following credentials: Username: admin, Password: admin.`*
 
 - **Footer**
 Allows the user to see the contact details and opening hours of the municipality and their social media canals (Facebook, Instagram, Twitter). None are clickable for now.
@@ -141,11 +145,11 @@ Allows the user to see the contact details and opening hours of the municipality
 ### <a name="features-left-to-implement"></a>Features left to Implement
 
 - **Dashboard**
-To show how many problems there has been reported per street / how long it took to solve what type of problems. This might be desirable for the municipality to show off how fantastic a job they are doing, or maybe to make clear that they need more infrastructure / resources to do the job.
+To show how many problems there have been reported per street / how long it took to solve what type of problems. This might be desirable for the municipality to show off how fantastic a job they are doing, or maybe to make clear internally that they need more infrastructure / resources to do the job. In that case, the dashboard would not be available for the public.
 
-- **Pictures of problems on website**
+- **Photos of problems on website**
 For now, people can send in a file / photo with the form. Obviously this could help the municipality to get a quick and clear impression on the (urgency of a) problem. It could also help a user to understand whether this is the problem he also wanted to report or not.
-I figured out how to retrieve this internally using the filename, but not how to retrieve this on the website in a nice and consistent manner. So for now, I maintained the possibility for the user to send in a file, but it won’t show in the report.
+I figured out how to receive an uploaded file in MongoDB, but not how to retrieve this on the website in a nice and consistent manner. So for now, I maintained the possibility for the user to send in a file, but it won’t show in the report.
 
 ## <a name="ux"></a>Technologies Used
 - **Languages**
@@ -177,18 +181,19 @@ I figured out how to retrieve this internally using the filename, but not how to
 ## <a name="testing"></a>Testing
 ### <a name="manual-testing"></a>Manual testing<br>
 #### Responsive testing
-I tested the responsiveness of the page 3 times (one time after writing the initial code, then after making several changes, and one time right before the final deployment) locally.
+I tested the responsiveness of the page 3 times locally: one time after writing the initial code, then after making several changes, and one time right before the final deployment.
 After the final deployment on Heroku, I tested it one more time remotely.
 I used Chrome developer tools.
 
 #### Testing different browsers
-The page is tested in different browsers: Google Chrome, Microsoft Edge, Internet Explorer 11, Firefox. Only in Internet Explorer I found some problems with the buttons I used. This has been solved.
+The page is tested in different browsers: Google Chrome, Microsoft Edge, Internet Explorer 11, Firefox. Only in Internet Explorer I found some problems with the buttons I used. This has been solved. I tested locally and also after deployment on Heroku.
 
 #### Testing the functionality ####
-I tested the functionalities by going through the steps a user should take to report a problem. In all cases the results matched what I expected.
+I tested the functionalities by going through the steps a user should take to report a problem and by going through the additional steps an admin can take. In all cases the results matched what I expected.
 
 **1. Search Functionality**
 1. Filling in a street name that is already in the database (because a problem has been reported):
+
 Expected result: street name + problem.
 
 1. Testing if the search functionality is case sensitive:
