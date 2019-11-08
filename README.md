@@ -183,10 +183,11 @@ I figured out how to receive an uploaded file in MongoDB, but not how to retriev
 #### Responsive testing
 I tested the responsiveness of the page 3 times locally: one time after writing the initial code, then after making several changes, and one time right before the final deployment.
 After the final deployment on Heroku, I tested it one more time remotely.
+Tested devices: Nokia 8110 4G, Galaxy S5,  Galaxy S9/S9+, Pixel 2, Pixel 2 XL, iPhone6/7/8, iPhone6/7/8 Plus, iPhone X, iPad, iPad Pro, Kindle Fire HDX, 1080p Full HD Television and responsive desktop.
 I used Chrome developer tools.
 
 #### Testing different browsers
-The page is tested in different browsers: Google Chrome, Microsoft Edge, Internet Explorer 11, Firefox. Only in Internet Explorer I found some problems with the buttons I used. This has been solved. I tested locally and also after deployment on Heroku.
+The page is tested in different browsers: Google Chrome, Microsoft Edge, Internet Explorer 11, Firefox and Ecosia. Only in Internet Explorer I found some problems with the buttons I used. This has been solved. I tested locally and also after deployment on Heroku.
 
 #### Testing the functionality ####
 I tested the functionalities by going through the steps a user should take to report a problem and by going through the additional steps an admin can take. In all cases the results matched what I expected.
@@ -292,17 +293,17 @@ Given the above and since I've tested all functionalities extensively manually a
 
 The project was coded in Gitpod, which also was used for version control, and then uploaded to Github. Finally I made a connection between Github and Heroku to deploy the project.
 
-- **Connection with MongoDB Atlas**
+- **Connection with MongoDB Atlas**<br>
 A MongoDB Atlas database was used. To connect Flask to the MongoDB I installed the third party library flaks-pymongo. I also installed dnspython to use the new style connection string for MongoDB Atlas.
 
-- **Connection string and secret key**
+- **Connection string and secret key**<br>
 In the app.py the os class getenv method is used to point Heroku to the config variable (MONGO_URI) and the secret key necessary for the login function in order to keep the production database connection string and the key secret.
 
-- **Requirements and Procfile**
+- **Requirements and Procfile**<br>
 A requirements.txt file is used to specify the dependencies that are required for the application to work.
 A Procfile is also used to specify to Heroku the commands that are executed by the app on startup.
 
-- **Connection between Github and Heroku**
+- **Connection between Github and Heroku**<br>
 To connect the Github repository to Heroku I went to the “Deploy” tab on Heroku Dashboard and select the GitHub pane. I choose the option to auto-deploy the project whenever it’s pushed to on Github.
 Finally I specified the IP, PORT, my connection string and secret key in the Heroku settings.
 
