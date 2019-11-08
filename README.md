@@ -123,7 +123,7 @@ There is hardly any difference between the mobile and larger screens. Because of
 
 - **Search functionality**<br>
 The municipality wants the user to look first if a problem is already reported. On the homepage there is a search functionality with the instruction “1. Look for reported problems – enter street namook for reported problems – enter street name”.
-Search functionality must not be case sensitive. Furthermore, if part of a street name is typed, it must give suggestions. If the search button is clicked without typinh anything, all results should show.
+Search functionality must not be case sensitive. Furthermore, if part of a street name is typed, it must give suggestions. If the search button is clicked without typing anything, all results should show.
 
 - **Login and Registration functionalities**<br>
 After searching for reported problems in a given street the user has the possibility to login to report a new problem. Therefore he also has the possibility to register himself. In this application he can choose username and password, but in real life he would have to register with his full name and for example his id-number.
