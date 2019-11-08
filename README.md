@@ -130,7 +130,7 @@ After searching for reported problems in a given street the user has the possibi
 If a user wants to register with an existing username, he gets a message that that username is already taken. When registered, the user can log in, providing his credentials. If he makes a typo, he receives a message to try it again.
 
 - **Report form**<br>
-After successfully logging in the user is sent to the page where he can use a form to report a problem. His username is already selected and not changeable and also the date / time of the report is filled-in already. He can only fill out the street name and the problem he is reporting. Optionally he can also send in a photo taken of the problem. This photo enters the database. However, it won’t show on the website.
+After successfully logging in the user is sent to the page where he can use a form to report a problem. His username is already selected and not changeable and also the date / time of the report is filled-in already. He can only fill out the street name and the problem he is reporting.
 
 - **Overview of reports**<br>
 After submitting the form, the user is sent to a general overview of all the reported problems. The most recently reported problem will be on top of the list, so the user will see his report immediately. He can click on the report to see if the municipality already posted a reaction.
@@ -149,8 +149,8 @@ Allows the user to see the contact details and opening hours of the municipality
 To show how many problems there have been reported per street / how long it took to solve what type of problems. This might be desirable for the municipality to show off how fantastic a job they are doing, or maybe to make clear internally that they need more infrastructure / resources to do the job. In that case, the dashboard would not be available for the public.
 
 - **Photos of problems on website**
-For now, people can send in a file / photo with the form. Obviously this could help the municipality to get a quick and clear impression on the (urgency of a) problem. It could also help a user to understand whether this is the problem he also wanted to report or not.
-I figured out how to receive an uploaded file in MongoDB, but not how to retrieve this on the website in a nice and consistent manner. So for now, I maintained the possibility for the user to send in a file, but it won’t show in the report.
+I would like to add the possibility that people can send in a file / photo with the form. Obviously this could help the municipality to get a quick and clear impression on the (urgency of a) problem. It could also help a user to understand whether this is the problem he also wanted to report or not.
+I figured out how to receive an uploaded file in MongoDB, but not how to retrieve this on the website in a nice and consistent manner (same size, for example). So for now, I decided to delete the possibility to upload a file from the Form.
 
 ## <a name="ux"></a>Technologies Used
 - **Languages**
@@ -244,7 +244,7 @@ Expected result: he is logged in immediately and redirected to“add report” p
 Expected result: this is automatically disabled.
 
 **4. Create Report Functionality**
-1. User files a report, describing the problem, entering the street name, and possibly adjust the date / time. He also can optionally upload a photo of the problem:
+1. User files a report, describing the problem, entering the street name, and possibly adjust the date / time:
 Expected result: after submitting he’s redirected to an overview of all the reported problems, last report (his own) shown first.
 
 1. User doesn’t mention the street name:

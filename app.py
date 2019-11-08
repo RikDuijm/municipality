@@ -5,10 +5,6 @@ from bson.objectid import ObjectId # Convert in Bson-bject to retrieve record in
 from bson import Binary # Needed to upload and retrieve files.
 import re # Needed for search functionality
 import bcrypt #https://pypi.org/project/bcrypt/
-''' Libraries necesary to store smaller binary files in '''
-import uuid
-from bson.binary import Binary, UUIDLegacy, STANDARD
-from bson.codec_options import CodecOptions
 
 app = Flask(__name__)
 
