@@ -5,13 +5,20 @@
         <h1>Quickly report a problem in your neighbourhood</h1>
         <h2>2. Check reported problems in <span class="text-danger">{{ query }}</span>.</h2>
 
-        <!-- Check if user is signed in. If not he sees button Login -->
-        {% if 'username' in session %}
-        {% else %}
+    <!-- Check if user is signed in. If so he sees button Report, if not button Login -->
+    {% if 'username' in session %}
+        <div class="row">
+            <div class="col-sm-6 login-button">
+                <a href="{{ url_for('add_report') }}" class="btn btn-danger" role="button">Report a problem</a>
+            </div>
+        </div>
+    {% else %}
+        <div class="row">
             <div class="col-sm-6 login-button">
                 <a href="{{ url_for('login') }}" class="btn btn-danger" role="button">Login to report</a>
             </div>
-        {% endif %}
+        </div>
+    {% endif %}
 
         <div id="accordion">
             <div class="card">
