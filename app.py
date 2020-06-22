@@ -25,19 +25,39 @@ def index():
     return render_template("index.html")
 
 # Code used from https://github.com/5pence/recipeGlut and changed for my own needs
+# @app.route('/search')
+# def search():
+#     """Provides logic for search bar"""
+#     orig_query = request.args['query']
+#     # using regular expression setting option for any case
+#     query = {'$regex': re.compile('.*{}.*'.format(orig_query)), '$options': 'i'}
+#     # find instances of the entered word in streetname
+#     results = mongo.db.reports.find({
+#         '$or': [
+#             {'streetname': query},
+#         ]
+#     }).sort('date', -1)
+#     return render_template('search.html', query=orig_query, results=results)
+
 @app.route('/search')
+
 def search():
+
     """Provides logic for search bar"""
+
     orig_query = request.args['query']
+
     # using regular expression setting option for any case
-    query = {'$regex': re.compile('.*{}.*'.format(orig_query)), '$options': 'i'}
-    # find instances of the entered word in streetname
-    results = mongo.db.reports.find({
-        '$or': [
-            {'streetname': query},
-        ]
-    }).sort('date', -1)
-    return render_template('search.html', query=orig_query, results=results)
+
+    results = mongo.db.reports.find(
+
+        {'streetname':
+
+            {'$regex': '.*{}.*'.format(orig_query),
+
+                '$options': 'i'}}).sort('date', -1)
+
+    return render_template('search.html', query=orig_query, results=results)    
 
 @app.route('/register', methods=['POST', 'GET'])
 def register():
